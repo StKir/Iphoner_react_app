@@ -1,5 +1,3 @@
-import Container from 'react-bootstrap/esm/Container';
-
 import './appHeader.scss'
 
 import logo from '../../assets/logo/logo.png'
@@ -9,7 +7,7 @@ import time from '../../assets/icons/access-time.svg'
 
 const AppHeader = () => {
     return (
-        <Container>
+        <div className='container'>
             <div className='appHeader'>
                 <a href="#" className='logo'>
                     <img src={logo} alt="logo" />
@@ -47,7 +45,7 @@ const AppHeader = () => {
                     </div>
                 </div>
             </div>
-        </Container>
+        </div>
     )
 }
 
