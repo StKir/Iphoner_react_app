@@ -1,0 +1,51 @@
+@import '../../style/colors.scss';
+@import '../../style/JuraFont.scss';
+
+footer{
+    margin-top: 80px;
+    width: 100%;
+    background: $purple;
+    border-radius: 25px 25px 0px 0px;   
+    padding-bottom: 50px;
+}
+.footer_logo{
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    max-width: 333px;
+    margin: 0 auto;
+    h3{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 47px;
+        color: #FFFFFF;
+    }
+}
+.footer_contacts{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-item{
+    display: flex;
+    align-items: center;
+    span{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;
+        color: #FFFFFF;
+        width: 12rem;
+        margin-left: 10px;
+    }
+
+    .phone_info{
+        .phone_call{
+            font-size: 16px;
+            line-height: 19px;
+            text-decoration-line: underline;
+            color: #FFFFFF !important;
+        }
+    }
+}
