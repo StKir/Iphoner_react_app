@@ -1,0 +1,10 @@
+.item_page{
+    margin-top: 60px;
+    display: flex;
+    grid-gap: 20px;
+    .items_grid{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 20px;
+    }
+}

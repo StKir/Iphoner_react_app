@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 const MainSlider = () => {
     const sliderRef = useRef('')
@@ -55,6 +55,7 @@ const Slider = (props) => {
     const renderItemsSlider = (arr) => {
         if(arr){
             return arr.map(({name,id,thumbnail}) => {
+                const routerName = name.replace(/ /g, '_')
                 return (
                     <SwiperSlide
                     style={{width: 428}}
@@ -64,7 +65,7 @@ const Slider = (props) => {
                             <img src={thumbnail} alt={name} />
                             <div className="slider_item_info">
                                 <h4>{name}</h4>
-                                <a href="#" className='slider_item_info-link'>Смотреть товары</a>
+                                <Link to={`/${routerName}`} className='slider_item_info-link'>Смотреть товары</Link>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -90,7 +91,7 @@ const Slider = (props) => {
                         <img src={tradeIn} alt='trade In' />
                         <div className="slider_item_info">
                             <h4>Trade-in</h4>
-                            <a href="#" className='slider_item_info-link'>Расчитать стоимость</a>
+                            <Link to={`/trade_in`} className='slider_item_info-link'>Расчитать стоимость</Link>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -102,12 +103,13 @@ const Plite = (props) => {
     const renderPlit = (arr) => {
         if(arr){
             return arr.map(({name,id,thumbnail}) => {
+                const routerName = name.replace(/ /g, '_')
                 return (
                     <div className='plite_wrp' key={id}>
                         <img src={thumbnail} alt={name} />
                         <div className='plite_info'>
                             <h5>{name}</h5>
-                            <a href='#'>Смотреть товары</a>
+                            <Link to={`/${routerName}`} href='#'>Смотреть товары</Link>
                         </div>
                     </div>
                 )
@@ -125,7 +127,7 @@ const Plite = (props) => {
                     <img src={tradeIn} alt='trade-in' />
                     <div className='plite_info'>
                         <h5>Trade-in</h5>
-                        <a href='#'>Расчитать стоимость</a>
+                        <Link to={`/trade_in`}>Расчитать стоимость</Link>
                     </div>
                 </div>
             </div>

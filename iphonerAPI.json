@@ -114,5 +114,47 @@
                   {"color": "#252525", "name": "Черный"}],
         "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-se-2020-black.jpg"
       }
+    ],
+    "stock":[
+      {
+        "id": 12,
+        "model": "iPhone_SE_(2020)",
+        "title": "iPhone SE (2020) 64ГБ Белый",
+        "memory": "64 ГБ",
+        "color": {"color": "#f2f2f2", "name": "Белый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-se-2020-white.jpg",
+        "stock": 10,
+        "price": 24590
+      },
+      {
+        "id": 13,
+        "model": "iPhone_SE_(2020)",
+        "title": "iPhone SE (2020) 128ГБ Белый",
+        "memory": "128 ГБ",
+        "color": {"color": "#f2f2f2", "name": "Белый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-se-2020-white.jpg",
+        "stock": 5,
+        "price": 32499
+      },
+      {
+        "id": 14,
+        "model": "iPhone_SE_(2020)",
+        "title": "iPhone SE (2020) 64ГБ Красный",
+        "memory": "64 ГБ",
+        "color": {"color": "#DB1717", "name": "Красный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-se-2020-red.jpg",
+        "stock": 10,
+        "price": 24590
+      },
+      {
+        "id": 15,
+        "model": "iPhone_13_Pro_Max",
+        "title": "iPhone 13 Pro Max 1ТБ Графитовый",
+        "memory": "1 ТБ",
+        "color": {"color": "#3E3E3E", "name": "Графитовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-se-2020-red.jpg",
+        "stock": 10,
+        "price": 99000
+      }
     ]
 }

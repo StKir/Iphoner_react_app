@@ -1,0 +1,21 @@
+.filters{
+    margin-top: 20px;
+    display: grid;
+    grid-gap: 20px;
+    .filters_select{
+        &-select{
+            border: 1px solid #AAAAAA;
+            background-color: #F3F3F3;
+            border-radius: 15px;
+            width: 278px;
+            height: 44px;
+            font-family: 'Roboto', sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 21px;
+            color: #000000;
+            padding: 0 20px;
+        }
+    }
+}
