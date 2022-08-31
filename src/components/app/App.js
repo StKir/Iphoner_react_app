@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import AppHeader from "../appHeader/AppHeader";
 import AppFooter from "../appFooter/AppFoter";
+import Spiner from "../spiner/Spiner";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,7 +16,7 @@ function App() {
       <div className="App">
         <AppHeader/>
           <main>
-            <Suspense fallback={<h1>dsadsa</h1>}>
+            <Suspense fallback={<Spiner/>}>
               <Routes>
                 <Route path="/" element={<MainPage/>} />
                 <Route path="/:model" element={<ItemPage/>} />

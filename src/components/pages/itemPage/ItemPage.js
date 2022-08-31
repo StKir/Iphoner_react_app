@@ -10,18 +10,18 @@ import store from '../../../store/store';
 
 const ItemPage = () => {
     const {model} = useParams();
+    const routerName = model.replace(/_/g, ' ')
     const dispathc = useDispatch();
     const {iphonsLoadingStatus} = useSelector(state => state.iphons)
     const iphons = selectAll(store.getState());
 
     useEffect(() => {
-        dispathc(fetchIphons(model))
+        dispathc(fetchIphons(routerName))
          // eslint-disable-next-line
     }, []);
 
     const renderIphons = (arr) => {
         if(iphonsLoadingStatus === 'idle'){
-            console.log('yes');
             return arr.map(({id,...props}) => {
                 return (
                     <ItemIphone key={id} {...props} model={model}/>
@@ -31,11 +31,10 @@ const ItemPage = () => {
     }
 
     const renderIphon = renderIphons(iphons);
-    console.log(iphons);
     return(
         <div className='container'>
             <div className='item_page'>
-                <ItemFilters/>
+                <ItemFilters iphon={routerName}/>
                 <div className='items_grid'>{renderIphon}</div>
             </div>
         </div>
