@@ -3,17 +3,17 @@ import ItemFilters from '../../itemFilters/ItemFilters';
 import ItemIphone from '../../itemIphone/ItemIphone';
 
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchIphons, selectAll } from '../../../store/iphonsSlice';
-import store from '../../../store/store';
+import { fetchIphons, filteredIphoneSelector } from '../../../store/iphonsSlice';
 
 const ItemPage = () => {
     const {model} = useParams();
     const routerName = model.replace(/_/g, ' ')
     const dispathc = useDispatch();
     const {iphonsLoadingStatus} = useSelector(state => state.iphons)
-    const iphons = selectAll(store.getState());
+    const {filterCoast, filterMemory, filterColor} = useSelector(state => state.filters)
+    const iphons = useSelector(filteredIphoneSelector)
 
     useEffect(() => {
         dispathc(fetchIphons(routerName))
@@ -22,11 +22,17 @@ const ItemPage = () => {
 
     const renderIphons = (arr) => {
         if(iphonsLoadingStatus === 'idle'){
-            return arr.map(({id,...props}) => {
-                return (
-                    <ItemIphone key={id} {...props} model={model}/>
-                )
-            })
+            if(arr.length > 0){
+                return arr.map(({id,...props}) => {
+                    if(filterCoast.ot < props.price && filterCoast.do > props.price){
+                        return (
+                            <ItemIphone key={id} {...props} model={model}/>
+                        )
+                    }
+                })
+            } else {
+                return (<h1>Ничего не найдено</h1>)
+            }
         }
     }
 

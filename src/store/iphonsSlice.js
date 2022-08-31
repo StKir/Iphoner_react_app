@@ -40,8 +40,30 @@ export const {selectAll} = iphonsAdater.getSelectors(state => state.iphons);
 
 export default reducer;
 
-export const {
-    heroesFetching,
-    heroesFetched,
-    heroesFetchingError,
-} = actions;
+export const filteredIphoneSelector = createSelector(
+    selectAll,
+    (state) => state.filters,
+    (iphons, filter) => {
+        if(filter.filterDisplay === 'По умолчанию') {
+            return iphons
+        };
+        if(filter.filterDisplay === 'Цены: по возрастанию') {
+            const newArray = JSON.parse(JSON.stringify(iphons))
+            return newArray.sort((a,b) => 
+                 parseFloat(a.price) - parseFloat(b.price)
+            )
+        };
+        if(filter.filterDisplay === 'Цены: по убыванию') {
+            const newArray = JSON.parse(JSON.stringify(iphons))
+            return newArray.sort((a,b) => 
+                 parseFloat(b.price) - parseFloat(a.price)
+            )
+        };
+    }
+);
+
+// export const {
+//     heroesFetching,
+//     heroesFetched,
+//     heroesFetchingError,
+// } = actions;

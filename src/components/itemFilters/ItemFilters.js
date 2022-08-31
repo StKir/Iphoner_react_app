@@ -1,12 +1,21 @@
 import './itemFiltars.scss';
+
 import AppBack from '../appBack/AppBack';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+import {filterChangeDisplay, filterChangeCoast, filterChangeMemory, filterChangeColor, filterReset} from '../../store/filtersSlice'
+import { useDispatch } from 'react-redux/es/exports';
 
 const ItemFilters = ({iphon}) => {
     const [model, setModel] = useState(null);
     const [filterMemory, setFilterMemory] = useState(null);
     const [filterColor, setFilterColor] = useState(null);
+    const dispathc = useDispatch();
+
+    useEffect(() => {
+        dispathc(filterReset());
+    }, [])
 
     useEffect(() => {
         axios.get('http://localhost:3001/iphons')
@@ -18,10 +27,20 @@ const ItemFilters = ({iphon}) => {
 
     const onChangeMemory = (e) => {
         setFilterMemory(e.target.textContent)
+        dispathc(filterChangeMemory(e.target.textContent))
     }
 
     const onChangeColor = (el) => {
-        setFilterColor(el)
+        setFilterColor(el);
+        dispathc(filterChangeColor(el))
+    }
+
+    const onChangeCoast = (e) => {
+        e.preventDefault()
+        dispathc(filterChangeCoast({
+            ot: Number(e.target[0].value),
+            do: Number(e.target[1].value > 5? (e.target[1].value): (999999))
+        }))
     }
 
     const renderMemory = (obj) => {
@@ -67,17 +86,19 @@ const ItemFilters = ({iphon}) => {
                     <select
                         className="filters_select-select filterItem"
                         name="select-element"
+                        onChange={e => {dispathc(filterChangeDisplay(e.target.value))}}
                         >
+                            <option>По умолчанию</option>
                             <option>Цены: по возрастанию</option>
                             <option>Цены: по убыванию</option>
                     </select>
                 </div>
                 <div className='filters_price filterItem'>
-                    <form name='filters_price' className='filters_price_form'>
+                    <form name='filters_price' className='filters_price_form' onSubmit={(e) => onChangeCoast(e)}>
                         <label htmlFor="filters_price" className='filter_title'>Стоимость</label>
                         <div className='filters_price_form-inputs'>
-                            <input type="number" placeholder='От'/>
-                            <input type="number" placeholder='До'/>
+                            <input type="number" name='ot' placeholder='От'/>
+                            <input type="number" name='do' placeholder='До'/>
                         </div>
                         <button type='sumbit' className='filters_price_form-btn'>
                             Показать
