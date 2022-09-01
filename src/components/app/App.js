@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MainPage = lazy(() => import('../pages/mainPage/MainPage'));
 const ItemPage = lazy(() => import('../pages/itemPage/ItemPage'));
+const ShopPage = lazy(() => import('../pages/shopPage/ShopPage'));
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<MainPage/>} />
                 <Route path="/:model" element={<ItemPage/>} />
+                <Route path="/:model/:title" element={<ShopPage/>} />
               </Routes>
             </Suspense>
           </main>

@@ -101,3 +101,18 @@
     width: 28px;
     height: 28px;
 }
+.filters_reset-filters_btn{
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid $purple;
+    border-radius: 5px;
+    height: 40px;
+    font-family: 'Roboto', sans-serif;
+    color: $purple;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

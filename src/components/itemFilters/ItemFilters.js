@@ -15,7 +15,14 @@ const ItemFilters = ({iphon}) => {
 
     useEffect(() => {
         dispathc(filterReset());
+        // eslint-disable-next-line
     }, [])
+
+    const resetFiltersMenu = () => {
+        dispathc(filterReset())
+        setFilterColor(null)
+        setFilterMemory(null)
+    }
 
     useEffect(() => {
         axios.get('http://localhost:3001/iphons')
@@ -23,6 +30,7 @@ const ItemFilters = ({iphon}) => {
                     return name === iphon
                 })[0]))
                 .catch(err => console.log(err))
+        // eslint-disable-next-line
     }, [])
 
     const onChangeMemory = (e) => {
@@ -35,7 +43,7 @@ const ItemFilters = ({iphon}) => {
         dispathc(filterChangeColor(el))
     }
 
-    const onChangeCoast = (e) => {
+    const onChangeCoast = (e) => { 
         e.preventDefault()
         dispathc(filterChangeCoast({
             ot: Number(e.target[0].value),
@@ -43,7 +51,7 @@ const ItemFilters = ({iphon}) => {
         }))
     }
 
-    const renderMemory = (obj) => {
+    const renderMemory = (obj) => {// Обернуть в usecallback 
         if(obj) {
             return obj.memory.map((el,id) => {
                 return (
@@ -54,10 +62,9 @@ const ItemFilters = ({iphon}) => {
             })
         } else {
             return null
-        }
-        }
+        }}
 
-    const renderColor = (obj) => {
+    const renderColor = (obj) => { // Обернуть в usecallback 
         if(obj) {
             return obj.color.map((el,id) => {
                 const style = {
@@ -73,8 +80,9 @@ const ItemFilters = ({iphon}) => {
                         onClick={() => onChangeColor(el.name)}></div>
                 )
             })
-        } else {return null}
-    }
+        } else {
+            return null
+        }}
 
     const memoryItem = renderMemory(model);
     const colorsItem = renderColor(model);
@@ -94,7 +102,10 @@ const ItemFilters = ({iphon}) => {
                     </select>
                 </div>
                 <div className='filters_price filterItem'>
-                    <form name='filters_price' className='filters_price_form' onSubmit={(e) => onChangeCoast(e)}>
+                    <form
+                        name='filters_price'
+                        className='filters_price_form'
+                        onSubmit={(e) => onChangeCoast(e)}>
                         <label htmlFor="filters_price" className='filter_title'>Стоимость</label>
                         <div className='filters_price_form-inputs'>
                             <input type="number" name='ot' placeholder='От'/>
@@ -115,6 +126,13 @@ const ItemFilters = ({iphon}) => {
                     <span className='filter_title'>Цвет</span>
                     <div className='filters_colors-grid'>
                         {colorsItem}
+                    </div>
+                </div>
+                <div className='filters_reset-filters'>
+                    <div
+                        className='filters_reset-filters_btn'
+                        onClick={resetFiltersMenu}>
+                            Cбросить фильтры
                     </div>
                 </div>
             </div>
