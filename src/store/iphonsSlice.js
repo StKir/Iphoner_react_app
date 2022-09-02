@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createEntityAdapter, createSelector } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createEntityAdapter, createSelector} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const iphonsAdater = createEntityAdapter();
@@ -44,26 +44,14 @@ export const filteredIphoneSelector = createSelector(
     selectAll,
     (state) => state.filters,
     (iphons, filter) => {
-        if(filter.filterDisplay === 'По умолчанию') {
-            return iphons
-        };
-        if(filter.filterDisplay === 'Цены: по возрастанию') {
-            const newArray = JSON.parse(JSON.stringify(iphons))
-            return newArray.sort((a,b) => 
-                 parseFloat(a.price) - parseFloat(b.price)
-            )
-        };
-        if(filter.filterDisplay === 'Цены: по убыванию') {
-            const newArray = JSON.parse(JSON.stringify(iphons))
-            return newArray.sort((a,b) => 
-                 parseFloat(b.price) - parseFloat(a.price)
-            )
-        };
+        return iphons.filter(({color, price, memory}) => 
+            (color.name === filter.filterColor || filter.filterColor === 'none') &&
+            ((filter.filterCoast.ot < price) && (filter.filterCoast.do > price)) &&
+            (filter.filterMemory === memory || filter.filterMemory === 'none')
+        )
     }
 );
 
 // export const {
-//     heroesFetching,
-//     heroesFetched,
-//     heroesFetchingError,
+//     
 // } = actions;

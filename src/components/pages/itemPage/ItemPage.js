@@ -12,7 +12,7 @@ const ItemPage = () => {
     const routerName = model.replace(/_/g, ' ')
     const dispathc = useDispatch();
     const {iphonsLoadingStatus} = useSelector(state => state.iphons)
-    const {filterCoast, filterMemory, filterColor} = useSelector(state => state.filters)
+    const {filterDisplay} = useSelector(state => state.filters)
     const iphons = useSelector(filteredIphoneSelector)
 
     useEffect(() => {
@@ -21,23 +21,27 @@ const ItemPage = () => {
          // eslint-disable-next-line
     }, []);
 
-    const renderIphons = (arr) => {
-        if(iphonsLoadingStatus === 'idle'){ //Проверяем загрузились ли телефоны
-            if(arr.length > 0){ // Проверяем что загруженные телефон есть
-                return arr.map(({id, ...props}) => {
-                    if( (filterCoast.ot < props.price) && 
-                        (filterCoast.do > props.price) && //Фильруем по заданной стоимости
-                        (filterMemory === props.memory || filterMemory === 'none') && //Фильруем по заданной памяти
-                        (filterColor === props.color.name || filterColor === 'none')//Фильруем по заданному цвету
-                    ){
-                        return (
-                            <ItemIphone key={id} {...props} model={model}/>
-                        )
-                    }
-                })
-            } else {
-                return (<h1 className='ErrorMassage_not-found'>Ничего не найдено</h1>)
+    const sortArray = (arr) => {
+        switch (filterDisplay) {
+            case 'Цены: по возрастанию': {
+             return arr.sort((a,b) => parseFloat(a.price) - parseFloat(b.price));
             }
+            case 'Цены: по убыванию': {
+                return arr.sort((a,b) => parseFloat(b.price) - parseFloat(a.price));
+            }
+            default: {
+                return arr
+            }
+        }
+    }
+
+    const renderIphons = (arr) => {
+        if(iphonsLoadingStatus === 'idle' && arr.length > 0){ //Проверяем загрузились ли телефоны
+            return sortArray(arr).map(({id, ...props}) => {
+                return <ItemIphone key={id} {...props} model={model}/>
+            })
+        } else {
+            return <h1 className='ErrorMassage_not-found'>Ничего не найдено по вашим фильтрам((</h1>
         }
     }
 
@@ -46,7 +50,7 @@ const ItemPage = () => {
         <div className='container'>
             <div className='item_page'>
                 <ItemFilters iphon={routerName}/>
-                <div className='items_grid'>{(renderIphon && renderIphon.length > 0)? (renderIphon): (<h1 className='ErrorMassage_not-found'>Ничего не найдено</h1>)}</div>
+                <div className='items_grid'>{renderIphon}</div>
             </div>
         </div>
     )

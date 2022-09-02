@@ -4,13 +4,14 @@ import AppBack from '../appBack/AppBack';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import {filterChangeDisplay, filterChangeCoast, filterChangeMemory, filterChangeColor, filterReset} from '../../store/filtersSlice'
-import { useDispatch } from 'react-redux/es/exports';
+import {filterChangeDisplay, filterChangeCoast, filterChangeMemory, filterChangeColor, filterReset} from '../../store/filtersSlice';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
 
 const ItemFilters = ({iphon}) => {
     const [model, setModel] = useState(null);
     const [filterMemory, setFilterMemory] = useState(null);
     const [filterColor, setFilterColor] = useState(null);
+    const {filterDisplay} = useSelector(state => state.filters)
     const dispathc = useDispatch();
 
     useEffect(() => {
@@ -94,6 +95,7 @@ const ItemFilters = ({iphon}) => {
                     <select
                         className="filters_select-select filterItem"
                         name="select-element"
+                        value={filterDisplay}
                         onChange={e => {dispathc(filterChangeDisplay(e.target.value))}}
                         >
                             <option>По умолчанию</option>
