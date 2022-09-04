@@ -8,8 +8,8 @@ import Spiner from "../spiner/Spiner";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MainPage = lazy(() => import('../pages/mainPage/MainPage'));
-const ItemPage = lazy(() => import('../pages/itemPage/ItemPage'));
 const ShopPage = lazy(() => import('../pages/shopPage/ShopPage'));
+const ItemPage = lazy(() => import('../pages/itemPage/ItemPage'));
 
 function App() {
   return (
@@ -20,8 +20,11 @@ function App() {
             <Suspense fallback={<Spiner/>}>
               <Routes>
                 <Route path="/" element={<MainPage/>} />
-                <Route path="/:model" element={<ItemPage/>} />
-                <Route path="/:model/:title" element={<ShopPage/>} />
+                <Route path="/:model" element={<ShopPage/>} />
+                <Route path="/:model/:title" element={<ItemPage/>} />
+                {/* <Route path="/trade_in" element={} /> */}
+                {/* <Route path="/basket" element={} /> */}
+                {/* <Route path="404" element={} /> */}
               </Routes>
             </Suspense>
           </main>

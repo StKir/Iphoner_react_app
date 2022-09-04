@@ -1,4 +1,5 @@
 import './appHeader.scss'
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo/logo.png'
 import map from '../../assets/icons/bx_map.svg'
@@ -10,10 +11,10 @@ const AppHeader = () => {
         <header>
             <div className='container'>
                 <div className='appHeader'>
-                    <a href="#" className='logo'>
+                    <Link to={`/`} className='logo'>
                         <img src={logo} alt="logo" />
                         <span className='logo_txt'>Айфонер</span>
-                    </a>
+                    </Link>
                     <div className='header-item'>
                         <img src={map} alt="map" />
                         <span className='head_info info'>

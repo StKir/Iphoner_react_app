@@ -1,4 +1,4 @@
-import './itemFiltars.scss';
+import './shopFilters.scss';
 
 import AppBack from '../appBack/AppBack';
 import { useEffect, useState } from 'react';
@@ -7,7 +7,7 @@ import axios from 'axios';
 import {filterChangeDisplay, filterChangeCoast, filterChangeMemory, filterChangeColor, filterReset} from '../../store/filtersSlice';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 
-const ItemFilters = ({iphon}) => {
+const ShopFilters = ({iphon}) => {
     const [model, setModel] = useState(null);
     const [filterMemory, setFilterMemory] = useState(null);
     const [filterColor, setFilterColor] = useState(null);
@@ -141,4 +141,4 @@ const ItemFilters = ({iphon}) => {
         </div>
     )
 }
-export default ItemFilters;
+export default ShopFilters;
