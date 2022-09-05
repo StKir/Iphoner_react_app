@@ -1,13 +1,16 @@
 import basket from '../../assets/icons/akar-icons_basket_white.svg'
 import './itemIphone.scss'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const ItemIphone = (props) => {
     const {title,memory,color,thumbnail,stock,model,price} = props;
     const routerName = title.replace(/ /g, '_')
+    const dispathc = useDispatch();
     return(
         <div className="Iphone_item">
-                <Link to={`/${model}/${routerName}`}>
+                <Link
+                to={`/${model}/${routerName}`}>
                     <img 
                         className="Iphone_item_thumbnail"
                         src={thumbnail}

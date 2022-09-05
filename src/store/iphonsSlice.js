@@ -4,7 +4,8 @@ import axios from "axios";
 const iphonsAdater = createEntityAdapter();
 
 const initialState = iphonsAdater.getInitialState({
-    iphonsLoadingStatus: 'idle'
+    iphonsLoadingStatus: 'idle',
+    selectedIphon: null
 })
 
 export const fetchIphons = createAsyncThunk(
