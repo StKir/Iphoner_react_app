@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import AppBack from '../../appBack/AppBack';
 import Spiner from '../../spiner/Spiner';
 import ItemInfo from '../../itemInfo/ItemInfo';
+import ItemImgGrid from '../../itemImgGrid/ItemImgGrid';
 
 import { useEffect, useState } from 'react';
 
@@ -27,10 +28,8 @@ const ItemPage = () => {
         <section className='item_iphone'>
             <div className='container'>
                 <AppBack/>
-                <div className='you-add-to-cart'>
-                    Вы добавили {iphon? (iphon.title): ('Что-то')} в корзину
-                </div>
                 {iphon? <ItemInfo {...iphon}/> : <Spiner/>}
+                {iphon? <ItemImgGrid iphone={iphon.model}/> : null}
             </div>
         </section>
     )

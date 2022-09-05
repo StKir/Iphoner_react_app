@@ -1,0 +1,18 @@
+.main{
+    margin-top: 20px;
+}
+.grid-one_img_wrp{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-template-rows: repeat(3 , 1fr);
+    img{
+        width: 100%;
+        max-height: 278px;
+        object-fit: cover;
+        flex-shrink: 0;
+        background-color: #ddd;
+        border-radius: 25px;
+        
+    }
+}
