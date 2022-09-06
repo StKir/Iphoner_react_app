@@ -112,6 +112,7 @@
                 color: #fff;
             }
             .shop-selectors-add-to-cart{
+                border: none;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -125,6 +126,17 @@
                 transition: all .3s ease-in-out;
             }
             .shop-selectors-add-to-cart:hover{
+                color: $purple;
+                background: #FFFFFF;
+                border: 1px solid $purple;
+                svg{
+                    path{
+                        stroke: $purple;
+                    }
+                }
+            }
+            .shop-selectors-add-to-cart:disabled{
+                cursor: default;
                 color: $purple;
                 background: #FFFFFF;
                 border: 1px solid $purple;

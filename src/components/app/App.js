@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const MainPage = lazy(() => import('../pages/mainPage/MainPage'));
 const ShopPage = lazy(() => import('../pages/shopPage/ShopPage'));
 const ItemPage = lazy(() => import('../pages/itemPage/ItemPage'));
+const BasketPage = lazy(() => import('../pages/basketPage/BasketPage'));
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
                 <Route path="/:model" element={<ShopPage/>} />
                 <Route path="/:model/:title" element={<ItemPage/>} />
                 {/* <Route path="/trade_in" element={} /> */}
-                {/* <Route path="/basket" element={} /> */}
+                <Route path="/basket" element={<BasketPage/>} />
                 {/* <Route path="404" element={} /> */}
               </Routes>
             </Suspense>
