@@ -10,14 +10,14 @@ import { fetchIphons, filteredIphoneSelector } from '../../../store/iphonsSlice'
 const ShopPage = () => {
     const {model} = useParams();
     const routerName = model.replace(/_/g, ' ')
-    const dispathc = useDispatch();
+    const dispatch = useDispatch();
     const {iphonsLoadingStatus} = useSelector(state => state.iphons)
     const {filterDisplay} = useSelector(state => state.filters)
     const iphons = useSelector(filteredIphoneSelector)
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        dispathc(fetchIphons(routerName))
+        dispatch(fetchIphons(routerName))
          // eslint-disable-next-line
     }, []);
 
@@ -37,8 +37,8 @@ const ShopPage = () => {
 
     const renderIphons = (arr) => {
         if(iphonsLoadingStatus === 'idle' && arr.length > 0){ //Проверяем загрузились ли телефоны
-            return sortArray(arr).map(({id, ...props}) => {
-                return <ItemIphone key={id} {...props} model={model}/>
+            return sortArray(arr).map((props) => {
+                return <ItemIphone key={props.id} {...props} model={model}/>
             })
         } else {
             return <h1 className='ErrorMassage_not-found'>Ничего не найдено по вашим фильтрам((</h1>

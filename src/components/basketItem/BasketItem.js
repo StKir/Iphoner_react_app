@@ -2,15 +2,7 @@ import './basketItem.scss';
 import minus from '../../assets/icons/minus.svg';
 import plus from '../../assets/icons/plus.svg';
 
-import { basketRemoveItem } from '../../store/basketSlice';
-import { useDispatch } from 'react-redux';
-
-const BasketItem = ({title,thumbnail,price,memory,id,counter,color}) => {
-    const dispatch = useDispatch();
-
-    const onDelete = () => {
-        dispatch(basketRemoveItem(id))
-    }
+const BasketItem = ({title,thumbnail,price,memory,counter,color, onDelete}) => {
 
     return(
         <div className='basket_iphone-item'>
@@ -18,7 +10,7 @@ const BasketItem = ({title,thumbnail,price,memory,id,counter,color}) => {
                 <img src={thumbnail} alt={title}/>
                 <div className='info'>
                     <h4>{title}</h4>
-                    <span>{memory} {color}</span>
+                    <span>{memory} {color.name}</span>
                 </div>
             </div>
             <div className='basket_iphone-item_selectors'>

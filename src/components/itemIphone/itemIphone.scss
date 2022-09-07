@@ -65,6 +65,7 @@
             }
         }
         &_basket{
+            border: none;
             cursor: pointer;
             transition: all .3s ease-in-out;
             display: flex;
@@ -90,6 +91,17 @@
         &_basket:hover{
             box-shadow: 0px 2px 8px rgba(53, 34, 176, 0.55);
             transform: translateY(-2px);
+            transition: all .3s ease-in-out;
+        }
+        &_basket:disabled{
+            background: #fff;
+            border: 1px solid $purple;
+            span{
+                color: $gray;
+            }
+            img{
+                display: none;
+            }
         }
     }
 }

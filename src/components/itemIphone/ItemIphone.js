@@ -1,12 +1,19 @@
 import basket from '../../assets/icons/akar-icons_basket_white.svg'
 import './itemIphone.scss'
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { basketAddItem, getAllItemsId } from '../../store/basketSlice';
 
 const ItemIphone = (props) => {
-    const {title,memory,color,thumbnail,stock,model,price} = props;
+    const {title,memory,color,thumbnail,stock,model,price, id} = props;
     const routerName = title.replace(/ /g, '_')
-    const dispathc = useDispatch();
+    const basketInfo = useSelector(getAllItemsId);
+    const dispatch = useDispatch();
+
+    const onAddItem = (obj) => {
+        dispatch(basketAddItem(obj));
+    }
+
     return(
         <div className="Iphone_item">
                 <Link
@@ -25,10 +32,12 @@ const ItemIphone = (props) => {
                 <div className="Iphone_item_pay_price">
                     <span>{price}</span> руб
                 </div>
-                <div className="Iphone_item_pay_basket">
+                <button className="Iphone_item_pay_basket"
+                onClick={() => onAddItem({...props, counter: 1})}
+                disabled={basketInfo.includes(id)? (true): (false)}>
                     <img src={basket} alt="basket" />
-                    <span>В корзину</span>
-                </div>
+                    <span>{basketInfo.includes(id)? ("В корзине"): ("В корзину")}</span>
+                </button>
             </div>
         </div>
     )

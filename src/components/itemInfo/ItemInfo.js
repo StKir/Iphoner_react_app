@@ -1,22 +1,37 @@
 import './itemInfo.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import minus from '../../assets/icons/minus.svg';
 import plus from '../../assets/icons/plus.svg';
 
 import { basketAddItem } from '../../store/basketSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ReactImageZoom from 'react-image-zoom'; // выйдает ошибку в консоли Warning: Using...
+import { getAllItemsId } from '../../store/basketSlice';
+import AppModal from '../appModal/AppModal';
 
 import { useState } from "react";
+import { useEffect } from 'react';
 
 const ItemInfo = (props) => {
     const dispatch = useDispatch();
-    const {title, memory, model, color, thumbnail, stock, price, id} = props;
+    const {title, memory, color, thumbnail, stock, price, id} = props;
     const [counter, setCounter] = useState(1);
     const [addStauts, setaddStauts] = useState(false);
+    const basketInfo = useSelector(getAllItemsId);
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
+        if(basketInfo.includes(id)){
+            setaddStauts(true)
+        }
+    // eslint-disable-next-line
+    }, [basketInfo])
+    
     const incCounter = () => {
         if(counter < stock){
             setCounter(counter + 1)
@@ -28,9 +43,7 @@ const ItemInfo = (props) => {
         }
     }
 
-    const onAddItem = (obj,e = null) => {
-        if(e){e.preventDefault()}
-        setaddStauts(true);
+    const onAddItem = (obj) => {
         dispatch(basketAddItem(obj));
     }
 
@@ -38,8 +51,10 @@ const ItemInfo = (props) => {
 
     return(
         <div>
-            <div className='you-add-to-cart'>
-                Вы добавили {title} в корзину
+            <AppModal/>
+            <div className='you-add-to-cart'
+            style={addStauts? ({display: "flex"}): ({display: "none"})}>
+                <span>Вы добавили {title} в корзину</span>
             </div>
             <div className='item_iphone_screen-wrp'>
                 <div className='item_iphone_screen-img'>
@@ -70,11 +85,11 @@ const ItemInfo = (props) => {
                                 <span className='counter'>{counter}</span>
                             <img src={plus} alt="plus" onClick={incCounter} />
                         </div>
-                        <Link to={`/basket`} onClick={() => onAddItem({id,title, memory, color: color.name, price, thumbnail, counter}, null)} className='shop-selectors-oneClick'>
+                        <div className='shop-selectors-oneClick'>
                             Купить в 1 клик
-                        </Link>
+                        </div>
                         <button className='shop-selectors-add-to-cart'
-                        onClick={(e) => onAddItem({id,title, memory, color: color.name, price, thumbnail, counter },e)}
+                        onClick={() => onAddItem({...props, counter})}
                         disabled={addStauts}
                         >
                             <div className='svg-basket'>

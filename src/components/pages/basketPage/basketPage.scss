@@ -1,8 +1,16 @@
 .basket-section{
+    margin-top: 60px;
     .basket_title{
         margin-top: 30px;
     }
     .basket_items-wrp{
+        min-height: 250px;
         margin-top: 20px;
+    }
+    .basket-empty{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
     }
 }
