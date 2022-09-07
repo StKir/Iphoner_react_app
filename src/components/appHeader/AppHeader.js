@@ -1,14 +1,20 @@
 import './appHeader.scss'
 import { Link } from 'react-router-dom';
 
+import AppModal from '../appModal/AppModal';
+
 import logo from '../../assets/logo/logo.png'
 import map from '../../assets/icons/bx_map.svg'
 import phone from '../../assets/icons/ci_phone-outline.svg'
 import time from '../../assets/icons/access-time.svg'
+import { useState } from 'react';
 
 const AppHeader = () => {
+    const [active, setActive] = useState(false)
+
     return (
         <header>
+            <AppModal active={active} setActive={setActive}  />
             <div className='container'>
                 <div className='appHeader'>
                     <Link to={`/`} className='logo'>
@@ -27,7 +33,8 @@ const AppHeader = () => {
                             <span className='phone_number'>
                                 +7(950)-603-77-37
                             </span>
-                            <span className='phone_call'>
+                            <span className='phone_call'
+                            onClick={() => {setActive(true)}}>
                                 Обратный звонок
                             </span>
                         </div>

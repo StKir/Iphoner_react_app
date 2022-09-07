@@ -2,7 +2,7 @@ import './basketItem.scss';
 import minus from '../../assets/icons/minus.svg';
 import plus from '../../assets/icons/plus.svg';
 
-const BasketItem = ({title,thumbnail,price,memory,counter,color, onDelete}) => {
+const BasketItem = ({title,thumbnail,price,memory,counter,color,onChangeCountInc,onChangeCountDec, onDelete}) => {
 
     return(
         <div className='basket_iphone-item'>
@@ -15,9 +15,9 @@ const BasketItem = ({title,thumbnail,price,memory,counter,color, onDelete}) => {
             </div>
             <div className='basket_iphone-item_selectors'>
                 <div className='basket-selectors-counter'>
-                    <img src={minus} alt="minus" onClick={null} />
+                    <img src={minus} alt="minus" onClick={onChangeCountDec} />
                         <span className='counter'>{counter}</span>
-                    <img src={plus} alt="plus" onClick={null} />
+                    <img src={plus} alt="plus" onClick={onChangeCountInc} />
                 </div>
                 <div className='basket-selectors-delete' onClick={onDelete}>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

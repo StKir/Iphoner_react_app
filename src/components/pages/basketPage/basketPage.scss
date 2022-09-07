@@ -1,3 +1,5 @@
+@import '../../../style/colors.scss';
+
 .basket-section{
     margin-top: 60px;
     .basket_title{
@@ -12,5 +14,30 @@
         align-items: center;
         justify-content: center;
         margin-top: 50px;
+    }
+    .basket_amount{
+        display: flex;
+        grid-gap: 20px;
+        align-items: end;
+        padding: 20px 15px;
+        background: #FFFFFF;
+        border-radius: 15px;
+        justify-content: flex-end;
+        h2{
+            font-family: 'Roboto', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 38px;
+            color: #000000;
+        }
+        span{
+            font-family: 'Roboto', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 28px;
+            color: $purple;
+        }
     }
 }

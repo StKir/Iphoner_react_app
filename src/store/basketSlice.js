@@ -12,12 +12,11 @@ const basketSlice = createSlice({
     reducers: {
         basketAddItem: (state, {payload}) => {
             basketAdater.addOne(state, payload)
-            state.basketResult+= payload.price
         },
         basketRemoveItem: (state, {payload}) => {
             basketAdater.removeOne(state, payload.id)
-            state.basketResult-= payload.price
-        }
+        },
+        basketUpdateItem: basketAdater.updateOne
     },
 })
 
@@ -36,7 +35,19 @@ export const getAllItemsId = createSelector(
     }
 )
 
+export const calcAmount = createSelector(
+    selectAll,
+    (iphons) => {
+        let sum = 0
+            iphons.forEach(el => {
+                sum+= el.price * el.counter
+            })
+            return sum
+        })
+    
+
 export const {
     basketAddItem,
-    basketRemoveItem
+    basketRemoveItem,
+    basketUpdateItem
 } = actions;

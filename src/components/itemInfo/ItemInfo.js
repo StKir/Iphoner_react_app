@@ -19,6 +19,7 @@ const ItemInfo = (props) => {
     const {title, memory, color, thumbnail, stock, price, id} = props;
     const [counter, setCounter] = useState(1);
     const [addStauts, setaddStauts] = useState(false);
+    const [overlay, setOverlay] = useState(false);
     const basketInfo = useSelector(getAllItemsId);
 
     useEffect(() => {
@@ -51,7 +52,7 @@ const ItemInfo = (props) => {
 
     return(
         <div>
-            <AppModal/>
+            <AppModal active={overlay} setActive={setOverlay} />
             <div className='you-add-to-cart'
             style={addStauts? ({display: "flex"}): ({display: "none"})}>
                 <span>Вы добавили {title} в корзину</span>
@@ -85,7 +86,7 @@ const ItemInfo = (props) => {
                                 <span className='counter'>{counter}</span>
                             <img src={plus} alt="plus" onClick={incCounter} />
                         </div>
-                        <div className='shop-selectors-oneClick'>
+                        <div className='shop-selectors-oneClick' onClick={() => setOverlay(true)}>
                             Купить в 1 клик
                         </div>
                         <button className='shop-selectors-add-to-cart'

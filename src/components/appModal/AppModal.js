@@ -1,10 +1,65 @@
+import { useState } from 'react';
 import './appModal.scss';
 
-const AppModal = ({active, setActive, type}) => {
+const AppModal = ({active, setActive}) => {
+    const [phone, setPhone] = useState('')
+    const [err, setErr] = useState(false)
+    const [type, setType] = useState('default')
+
+    const closeOverlay = (e) => {
+        if(e.target.className === 'modal-overlay'){
+            setActive(false)
+        }
+    }
+
+    const onGetOrder = (e) => {
+        e.preventDefault();
+        if(phone.length === 11){
+            setType('ordered');
+            setPhone('')
+            setErr(false)
+        } else {
+            setErr(true)
+        }
+    }
+
+    const renderText = (type) => {
+        if(type === 'ordered'){
+            return(
+                <>
+                    <h2>Спасибо за заказ, наш оператор свзяжется с вами</h2>
+                    <button className='cancel-ord' onClick={() => setActive(false)}>Закрыть</button>
+                </>
+            )
+        } else {
+            return(
+                <>
+                    <h2>Один звонок и айфон уже у вас!</h2>
+                    <p>Просто оставьте свой номер телефона, мы перезвоним в течении 15 минут</p>
+                    <form action='none' onSubmit={(e) => onGetOrder(e)}>
+                        <input
+                            type="number"
+                            placeholder='+7(___)-(___)-(__)-(__)'
+                            min={11} value={phone}
+                            onChange={(e) => setPhone(e.target.value)} 
+                            style={!err? (null): {border: '1px solid red'}}/>
+                        <div className='overlay_btns'>
+                            <button className='submit-order' type='submit'>Заказать</button>
+                            <button className='cancel' onClick={() => setActive(false)}>Отмена</button>
+                        </div>
+                    </form>
+                </>
+            )
+        }
+    }
+
+    const txt = renderText(type);
     return(
-        <div className='modal-overlay'>
+        <div className='modal-overlay'
+            style={active? ({display: 'flex'}): ({display: 'none'})}
+            onClick={(e) => closeOverlay(e)}>
             <div className='modal-overlay_content'>
-                <h1>MODAL</h1>
+                {txt}
             </div>
         </div>
     )
