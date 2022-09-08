@@ -1,29 +1,29 @@
 import './basketPage.scss';
 import AppBack from '../../appBack/AppBack';
 import BasketItem from '../../basketItem/BasketItem';
+import BasketForm from '../../basketForm/BasketForm';
 
 import store from '../../../store/store';
 import {selectAll} from '../../../store/basketSlice';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import { basketRemoveItem, basketUpdateItem, } from '../../../store/basketSlice';
+import { basketRemoveItem, basketUpdateItem, basketSetTotal } from '../../../store/basketSlice';
 import { calcAmount } from '../../../store/basketSlice';
 import { useDispatch } from 'react-redux';
 
 const BasketPage = () => {
     const [itemsArray, setItemsArray] = useState(null)
-    const [data, setData] = useState(0);//Жесткий костыль
-    const amount = useSelector(calcAmount);
+    const amount = useSelector(calcAmount);//Кастомный селектор возвращает общую сумму корзины
     const dispatch = useDispatch()
 
     useEffect(() => {
         setItemsArray(selectAll(store.getState()))
+        dispatch(basketSetTotal(amount))
     // eslint-disable-next-line
-    }, [data])
+    }, [amount])
 
     const onDelete = (obj) => {
-        setData(data + 1)
         dispatch(basketRemoveItem(obj))
     // eslint-disable-next-line
     }
@@ -31,14 +31,12 @@ const BasketPage = () => {
 
     const onChangeCountInc = ({counter, id, stock}) => {
         if(stock > counter){
-            setData(data + 1)
             dispatch(basketUpdateItem({id: id, changes: {counter: counter + 1}}))
         }
     }
     const onChangeCountDec = (el) => {
         const {counter, id} = el
         if(counter > 1){
-            setData(data + 1)
             dispatch(basketUpdateItem({id: id, changes: {counter: counter - 1}}))
         } else {
             onDelete({id})
@@ -71,9 +69,10 @@ const BasketPage = () => {
                     {items.length? (items): (<h1 className='basket-empty'>Корзина пуста</h1>)}
                 </div>
                 <div className='basket_amount'
-                style={amount? ({display: 'flex'}): ({display: 'none'})}>
-                    <h2>Итог:</h2> <span>{amount} руб</span>
+                style={amount? ({display: 'table'}): ({display: 'none'})}>
+                    <span>Итог:</span> <span>{amount} руб</span>
                 </div>
+                <BasketForm/>
             </div>
         </section>
     )

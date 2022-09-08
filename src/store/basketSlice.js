@@ -16,7 +16,10 @@ const basketSlice = createSlice({
         basketRemoveItem: (state, {payload}) => {
             basketAdater.removeOne(state, payload.id)
         },
-        basketUpdateItem: basketAdater.updateOne
+        basketSetTotal: (state, {payload}) => {
+            state.basketResult = payload;
+        },
+        basketUpdateItem: basketAdater.updateOne,
     },
 })
 
@@ -49,5 +52,6 @@ export const calcAmount = createSelector(
 export const {
     basketAddItem,
     basketRemoveItem,
-    basketUpdateItem
+    basketUpdateItem,
+    basketSetTotal
 } = actions;

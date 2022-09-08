@@ -6,7 +6,7 @@
         margin-top: 30px;
     }
     .basket_items-wrp{
-        min-height: 250px;
+        min-height: 170px;
         margin-top: 20px;
     }
     .basket-empty{
@@ -16,20 +16,22 @@
         margin-top: 50px;
     }
     .basket_amount{
-        display: flex;
         grid-gap: 20px;
         align-items: end;
         padding: 20px 15px;
         background: #FFFFFF;
         border-radius: 15px;
-        justify-content: flex-end;
-        h2{
+        justify-content: end;
+        margin-left: auto; 
+        margin-right: 0;
+        span:first-child{
             font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: 700;
             font-size: 32px;
             line-height: 38px;
             color: #000000;
+            margin-right: 10px;
         }
         span{
             font-family: 'Roboto', sans-serif;
