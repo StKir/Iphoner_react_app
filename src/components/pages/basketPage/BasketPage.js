@@ -2,6 +2,7 @@ import './basketPage.scss';
 import AppBack from '../../appBack/AppBack';
 import BasketItem from '../../basketItem/BasketItem';
 import BasketForm from '../../basketForm/BasketForm';
+import BasketOrdered from '../../basketOrdered/BasketOrdered';
 
 import store from '../../../store/store';
 import {selectAll} from '../../../store/basketSlice';
@@ -14,6 +15,7 @@ import { useDispatch } from 'react-redux';
 
 const BasketPage = () => {
     const [itemsArray, setItemsArray] = useState(null)
+    const [status, SetStatus] = useState(false);
     const amount = useSelector(calcAmount);//Кастомный селектор возвращает общую сумму корзины
     const dispatch = useDispatch()
 
@@ -57,6 +59,7 @@ const BasketPage = () => {
             return false
         }
     }
+    
 
     const items = renderItems(itemsArray);
 
@@ -64,6 +67,7 @@ const BasketPage = () => {
         <section className="basket-section">
             <div className='container'>
                 <AppBack/>
+                {status? (<BasketOrdered/>): null}
                 <h2 className='basket_title'>Корзина</h2>
                 <div className='basket_items-wrp'>
                     {items.length? (items): (<h1 className='basket-empty'>Корзина пуста</h1>)}
@@ -72,7 +76,7 @@ const BasketPage = () => {
                 style={amount? ({display: 'table'}): ({display: 'none'})}>
                     <span>Итог:</span> <span>{amount} руб</span>
                 </div>
-                <BasketForm/>
+                    {items? (<BasketForm SetStatus={() => SetStatus(true)} items={items} />): null}
             </div>
         </section>
     )

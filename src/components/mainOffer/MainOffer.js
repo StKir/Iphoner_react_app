@@ -1,5 +1,5 @@
 import omgImg from '../../assets/smiles/omg.png';
-
+import { Link } from 'react-router-dom';
 import './mainOffer.scss'
 
 const MainOffer = () => {
@@ -14,15 +14,15 @@ const MainOffer = () => {
                         </div>
                         <img className='mainoffer_block-offer_img' src={omgImg} alt="omgImg" />
                     </div>
-                    <a href="#" className='mainoffer_block_popular'>
+                    <Link to={`/iPhone_12`} className='mainoffer_block_popular'>
                         <div className='popular-sticker'>
                             <span>Популярное</span>
                         </div>
                         <div className='mainoffer_block_popular_txt'>
-                            <h4>Iphone 12 64gb</h4>
+                            <h4>Iphone 12</h4>
                             <p>Смартфон iPhone 12 64Gb Чёрный имеет огромный дисплей Super Retina XDR c диагональю 6,1 дюйма...</p>
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

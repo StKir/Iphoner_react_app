@@ -10,6 +10,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "concurrently": "^7.3.0",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -21,7 +22,8 @@
     "sass": "^1.54.5",
     "swiper": "^8.3.2",
     "unsplash-js": "^7.0.15",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"npx json-server iphonerAPI.json --port 3001\"",

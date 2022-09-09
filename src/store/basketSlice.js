@@ -20,6 +20,10 @@ const basketSlice = createSlice({
             state.basketResult = payload;
         },
         basketUpdateItem: basketAdater.updateOne,
+        basketReset: (state) => {
+            state.basketResult = 0;
+            basketAdater.removeAll(state);
+        }
     },
 })
 
@@ -53,5 +57,6 @@ export const {
     basketAddItem,
     basketRemoveItem,
     basketUpdateItem,
-    basketSetTotal
+    basketSetTotal,
+    basketReset
 } = actions;
