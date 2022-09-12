@@ -2,6 +2,7 @@ import './shopPage.scss';
 import ShopFilters from '../../shopFilters/ShopFilters';
 import ItemIphone from '../../itemIphone/ItemIphone';
 
+import {Helmet} from "react-helmet";
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -47,15 +48,24 @@ const ShopPage = () => {
 
     const renderIphon = renderIphons(iphons);
     return(
-        <div className='container'>
-            <div className='item_page'>
-                <ShopFilters iphon={routerName}/>
-                <div className='item_page_shop-wrp'>
-                    <h2>{routerName}</h2>
-                    <div className='items_grid'>{renderIphon}</div>
+        <>
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Products page"
+                />
+                <title>{routerName}</title>
+            </Helmet>
+            <div className='container'>
+                <div className='item_page'>
+                    <ShopFilters iphon={routerName}/>
+                    <div className='item_page_shop-wrp'>
+                        <h2>{routerName}</h2>
+                        <div className='items_grid'>{renderIphon}</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

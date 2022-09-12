@@ -4,28 +4,35 @@ import map from '../../assets/icons/bx_map-white.svg'
 import phone from '../../assets/icons/ci_phone-outline_white.svg'
 import time from '../../assets/icons/access-time_hitw.svg'
 
+import { useState } from 'react';
+import AppModal from '../appModal/AppModal';
+import { Link } from 'react-router-dom';
+
 const AppFooter = () => {
+    const [active, setActive] = useState(false)
     return(
         <footer>
+            <AppModal active={active} setActive={setActive}  />
             <div className='container'>
-                <a href='#' className='footer_logo'>
+                <Link to={`/`} className='footer_logo'>
                     <img src={logo_white} alt="logo" />
                     <h3>Айфонер</h3>
-                </a>
+                </Link>
                 <div className='footer_contacts'>
                     <div className='footer-item'>
                             <img src={map} alt="map" />
                             <span className='head_info info'>
-                                г.Нижний Новгород ул. Заярская 10
+                                г.Нижний Новгород ул. Заярская 99
                             </span>
                         </div>
                         <div className='footer-item'>
                             <img src={phone} alt="phone" />
                             <div className='phone_info info'>
                                 <span className='phone_number'>
-                                    +7(950)-603-77-37
+                                    +7(950)-603-XX-XX
                                 </span>
-                                <span className='phone_call'>
+                                <span className='phone_call'
+                                onClick={() => {setActive(true)}}>
                                     Обратный звонок
                                 </span>
                             </div>

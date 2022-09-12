@@ -11,6 +11,7 @@ const MainPage = lazy(() => import('../pages/mainPage/MainPage'));
 const ShopPage = lazy(() => import('../pages/shopPage/ShopPage'));
 const ItemPage = lazy(() => import('../pages/itemPage/ItemPage'));
 const BasketPage = lazy(() => import('../pages/basketPage/BasketPage'));
+const TradeIn = lazy(() => import('../pages/tradeInPage/TradeIn'));
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
                 <Route path="/" element={<MainPage/>} />
                 <Route path="/:model" element={<ShopPage/>} />
                 <Route path="/:model/:title" element={<ItemPage/>} />
-                {/* <Route path="/trade_in" element={} /> */}
+                <Route path="/trade_in" element={<TradeIn/>} />
                 <Route path="/basket" element={<BasketPage/>} />
                 {/* <Route path="404" element={} /> */}
               </Routes>

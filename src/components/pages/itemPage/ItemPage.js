@@ -3,6 +3,7 @@ import './itempage.scss';
 import axios from 'axios';
 
 import { useParams } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 
 import AppBack from '../../appBack/AppBack';
 import Spiner from '../../spiner/Spiner';
@@ -25,6 +26,14 @@ const ItemPage = () => {
     }, [])
 
     return(
+        <>
+        <Helmet>
+            <meta
+                name="description"
+                content="Product Information"
+            />
+            <title>{routerName}</title>
+        </Helmet>
         <section className='item_iphone'>
             <div className='container'>
                 <AppBack/>
@@ -32,6 +41,7 @@ const ItemPage = () => {
                 {iphon? <ItemImgGrid iphone={iphon.model}/> : null}
             </div>
         </section>
+        </>
     )
 }
 

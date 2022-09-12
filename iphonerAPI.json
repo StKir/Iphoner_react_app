@@ -185,6 +185,466 @@
         "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-silver.jpg",
         "stock": 5,
         "price": 99000
+      },
+      {
+        "id": 19,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 128 ГБ Серебристый",
+        "memory": "128 ГБ",
+        "color": {"color": "#DFDFD7", "name": "Серебристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-silver.jpg",
+        "stock": 9,
+        "price": 70500
+      },
+      {
+        "id": 20,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 256 ГБ Серебристый",
+        "memory": "256 ГБ",
+        "color": {"color": "#DFDFD7", "name": "Серебристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-silver.jpg",
+        "stock": 2,
+        "price": 85000
+      },
+      {
+        "id": 21,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 1 ТБ Серебристый",
+        "memory": "1 ТБ",
+        "color": {"color": "#DFDFD7", "name": "Серебристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-silver.jpg",
+        "stock": 15,
+        "price": 115000
+      },
+      {
+        "id": 22,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 512 ГБ Небесно‑голубой",
+        "memory": "512 ГБ",
+        "color": {"color": "#B3C5DA", "name": "Небесно‑голубой"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-blue.jpg",
+        "stock": 2,
+        "price": 109000
+      },
+      {
+        "id": 23,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 128 ГБ Небесно‑голубой",
+        "memory": "128 ГБ",
+        "color": {"color": "#B3C5DA", "name": "Небесно‑голубой"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-blue.jpg",
+        "stock": 7,
+        "price": 75000
+      },
+      {
+        "id": 237,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 1 ТБ Небесно‑голубой",
+        "memory": "1 ТБ",
+        "color": {"color": "#B3C5DA", "name": "Небесно‑голубой"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-blue.jpg",
+        "stock": 6,
+        "price": 119000
+      },
+      {
+        "id": 24,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 512 ГБ Графитовый",
+        "memory": "512 ГБ",
+        "color": {"color": "#3E3E3E", "name": "Графитовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-graphite.jpg",
+        "stock": 12,
+        "price": 109000
+      },
+      {
+        "id": 25,
+        "model": "iPhone 13 Pro Max",
+        "title": "iPhone 13 Pro Max 128 ГБ Графитовый",
+        "memory": "128 ГБ",
+        "color": {"color": "#3E3E3E", "name": "Графитовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-max-graphite.jpg",
+        "stock": 2,
+        "price": 75000
+      },
+      {
+        "id": 26,
+        "model": "iPhone 13 Pro",
+        "title": "iPhone 13 Pro 128 ГБ Зеленый",
+        "memory": "128 ГБ",
+        "color": {"color": "#364637", "name": "Зеленый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-green.jpg",
+        "stock": 2,
+        "price": 67000
+      },
+      {
+        "id": 27,
+        "model": "iPhone 13 Pro",
+        "title": "iPhone 13 Pro 512 ГБ Зеленый",
+        "memory": "512 ГБ",
+        "color": {"color": "#364637", "name": "Зеленый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-green.jpg",
+        "stock": 4,
+        "price": 101000
+      },
+      {
+        "id": 270,
+        "model": "iPhone 13 Pro",
+        "title": "iPhone 13 Pro 256 ГБ Графитовый",
+        "memory": "256 ГБ",
+        "color": {"color": "#3E3E3E", "name": "Графитовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-graphite.jpg",
+        "stock": 7,
+        "price": 85000
+      },
+      {
+        "id": 28,
+        "model": "iPhone 13 Pro",
+        "title": "iPhone 13 Pro 1 ТБ Графитовый",
+        "memory": "1 ТБ",
+        "color": {"color": "#3E3E3E", "name": "Графитовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-graphite.jpg",
+        "stock": 9,
+        "price": 102000
+      },
+      {
+        "id": 29,
+        "model": "iPhone 13 Pro",
+        "title": "iPhone 13 Pro 1 ТБ Небесно‑голубой",
+        "memory": "1 ТБ",
+        "color": {"color": "#B3C5DA", "name": "Небесно‑голубой"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pro-blue.jpg",
+        "stock": 15,
+        "price": 102000
+      },
+      {
+        "id": 30,
+        "model": "iPhone 13",
+        "title": "iPhone 13 1 ТБ Розовый",
+        "memory": "1 ТБ",
+        "color": {"color": "#faddd7", "name": "Розовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pink.jpg",
+        "stock": 12,
+        "price": 55000
+      },
+      {
+        "id": 307,
+        "model": "iPhone 13",
+        "title": "iPhone 13 1 ТБ Розовый",
+        "memory": "1 ТБ",
+        "color": {"color": "#faddd7", "name": "Розовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pink.jpg",
+        "stock": 12,
+        "price": 85000
+      },
+      {
+        "id": 31,
+        "model": "iPhone 13",
+        "title": "iPhone 13 256 ГБ Розовый",
+        "memory": "256 ГБ",
+        "color": {"color": "#faddd7", "name": "Розовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pink.jpg",
+        "stock": 6,
+        "price": 65000
+      },
+      {
+        "id": 32,
+        "model": "iPhone 13",
+        "title": "iPhone 13 512 ГБ Розовый",
+        "memory": "512 ГБ",
+        "color": {"color": "#faddd7", "name": "Розовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pink.jpg",
+        "stock": 4,
+        "price": 70000
+      },
+      {
+        "id": 33,
+        "model": "iPhone 13",
+        "title": "iPhone 13 128 ГБ Розовый",
+        "memory": "128 ГБ",
+        "color": {"color": "#faddd7", "name": "Розовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-pink.jpg",
+        "stock": 9,
+        "price": 50000
+      },
+      {
+        "id": 339,
+        "model": "iPhone 13",
+        "title": "iPhone 13 128 ГБ Синий",
+        "memory": "128 ГБ",
+        "color": {"color": "#276787", "name": "Синий"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-blue.jpg",
+        "stock": 6,
+        "price": 50000
+      },
+      {
+        "id": 34,
+        "model": "iPhone 13",
+        "title": "iPhone 13 512 ГБ Синий",
+        "memory": "512 ГБ",
+        "color": {"color": "#276787", "name": "Синий"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-blue.jpg",
+        "stock": 4,
+        "price": 70000
+      },
+      {
+        "id": 35,
+        "model": "iPhone 13",
+        "title": "iPhone 13 512 ГБ Сияющая звезда",
+        "memory": "512 ГБ",
+        "color": {"color": "#faf6f2", "name": "Сияющая звезда"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-starlight.jpg",
+        "stock": 2,
+        "price": 70000
+      },
+      {
+        "id": 36,
+        "model": "iPhone 13",
+        "title": "iPhone 13 256 ГБ Сияющая звезда",
+        "memory": "256 ГБ",
+        "color": {"color": "#faf6f2", "name": "Сияющая звезда"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-starlight.jpg",
+        "stock": 2,
+        "price": 65000
+      },
+      {
+        "id": 37,
+        "model": "iPhone 13",
+        "title": "iPhone 13 256 ГБ Тёмная ночь",
+        "memory": "128 ГБ",
+        "color": {"color": "#232a31", "name": "Тёмная ночь"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-midnight.jpg",
+        "stock": 8,
+        "price": 50000
+      },
+      {
+        "id": 38,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 128 ГБ Тёмная ночь",
+        "memory": "128 ГБ",
+        "color": {"color": "#364637", "name": "Зеленый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-green.jpg",
+        "stock": 6,
+        "price": 52000
+      },
+      {
+        "id": 390,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 256 ГБ Зеленый",
+        "memory": "256 ГБ",
+        "color": {"color": "#364637", "name": "Зеленый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-green.jpg",
+        "stock": 9,
+        "price": 60000
+      },
+      {
+        "id": 39,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 512 ГБ Зеленый",
+        "memory": "512 ГБ",
+        "color": {"color": "#364637", "name": "Зеленый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-green.jpg",
+        "stock": 8,
+        "price": 64000
+      },
+      {
+        "id": 401,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 512 ГБ Красный",
+        "memory": "512 ГБ",
+        "color": {"color": "#DB1717", "name": "Красный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-red.jpg",
+        "stock": 8,
+        "price": 64000
+      },
+      {
+        "id": 40,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 128 ГБ Красный",
+        "memory": "128 ГБ",
+        "color": {"color": "#DB1717", "name": "Красный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-red.jpg",
+        "stock": 3,
+        "price": 52000
+      },
+      {
+        "id": 41,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 512 ГБ Тёмная ночь",
+        "memory": "512 ГБ",
+        "color": {"color": "#232a31", "name": "Тёмная ночь"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-midnight.jpg",
+        "stock": 12,
+        "price": 64000
+      },
+      {
+        "id": 42,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 128 ГБ Тёмная ночь",
+        "memory": "128 ГБ",
+        "color": {"color": "#232a31", "name": "Тёмная ночь"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-midnight.jpg",
+        "stock": 17,
+        "price": 52000
+      },
+      {
+        "id": 43,
+        "model": "iPhone 13 mini",
+        "title": "iPhone 13 mini 128 ГБ Синий",
+        "memory": "128 ГБ",
+        "color": {"color": "#B3C5DA", "name": "Синий"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-13-mini-blue.jpg",
+        "stock": 11,
+        "price": 52000
+      },
+      {
+        "id": 44,
+        "model": "iPhone SE (2022)",
+        "title": "iPhone SE (2022) 64 ГБ Тёмная ночь",
+        "memory": "64 ГБ",
+        "color": {"color": "#232a31", "name": "Тёмная ночь"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-se-2022-midnight.jpg",
+        "stock": 4,
+        "price": 28000
+      },
+      {
+        "id": 45,
+        "model": "iPhone SE (2022)",
+        "title": "iPhone SE (2022) 128 ГБ Красный",
+        "memory": "128 ГБ",
+        "color": {"color": "#DB1717", "name": "Красный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-se-2022-red.jpg",
+        "stock": 2,
+        "price": 33000
+      },
+      {
+        "id": 46,
+        "model": "iPhone 12 Pro Max",
+        "title": "iPhone 12 Pro Max 128 ГБ Графитовый",
+        "memory": "128 ГБ",
+        "color": {"color": "#3E3E3E", "name": "Графитовый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-pro-max-graphite-hero.jpg",
+        "stock": 6,
+        "price": 72000
+      },
+      {
+        "id": 47,
+        "model": "iPhone 12 Pro Max",
+        "title": "iPhone 12 Pro Max 256 ГБ Cеребристый",
+        "memory": "256 ГБ",
+        "color": {"color": "#DFDFD7", "name": "Cеребристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-pro-max-silver-hero.jpg",
+        "stock": 14,
+        "price": 79000
+      },
+      {
+        "id": 48,
+        "model": "iPhone 12 Pro Max",
+        "title": "iPhone 12 Pro Max 256 ГБ Cеребристый",
+        "memory": "256 ГБ",
+        "color": {"color": "#DFDFD7", "name": "Cеребристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-pro-max-silver-hero.jpg",
+        "stock": 14,
+        "price": 79000
+      },
+      {
+        "id": 49,
+        "model": "iPhone 12 Pro",
+        "title": "iPhone 12 Pro 256 ГБ Cеребристый",
+        "memory": "256 ГБ",
+        "color": {"color": "#DFDFD7", "name": "Серебристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-pro-gold-hero.jpg",
+        "stock": 14,
+        "price": 79000
+      },
+      {
+        "id": 50,
+        "model": "iPhone 12 Pro",
+        "title": "iPhone 12 Pro 512 ГБ Cеребристый",
+        "memory": "512 ГБ",
+        "color": {"color": "#DFDFD7", "name": "Серебристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-pro-gold-hero.jpg",
+        "stock": 14,
+        "price": 85000
+      },
+      {
+        "id": 51,
+        "model": "iPhone 12 Pro",
+        "title": "iPhone 12 Pro 128 ГБ Cеребристый",
+        "memory": "128 ГБ",
+        "color": {"color": "#DFDFD7", "name": "Серебристый"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-pro-gold-hero.jpg",
+        "stock": 2,
+        "price": 79000
+      },
+      {
+        "id": 52,
+        "model": "iPhone 12",
+        "title": "iPhone 12 128 ГБ Небесно‑голубой",
+        "memory": "128 ГБ",
+        "color": {"color": "#B3C5DA", "name": "Небесно‑голубой"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-blue.jpg",
+        "stock": 6,
+        "price": 55000
+      },
+      {
+        "id": 53,
+        "model": "iPhone 12",
+        "title": "iPhone 12 256 ГБ Небесно‑голубой",
+        "memory": "256 ГБ",
+        "color": {"color": "#B3C5DA", "name": "Небесно‑голубой"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-blue.jpg",
+        "stock": 7,
+        "price": 64000
+      },
+      {
+        "id": 54,
+        "model": "iPhone 12",
+        "title": "iPhone 12 512 ГБ Небесно‑голубой",
+        "memory": "512 ГБ",
+        "color": {"color": "#B3C5DA", "name": "Небесно‑голубой"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-blue.jpg",
+        "stock": 3,
+        "price": 72000
+      },
+      {
+        "id": 55,
+        "model": "iPhone 12 mini",
+        "title": "iPhone 12 mini 512 ГБ Черный",
+        "memory": "512 ГБ",
+        "color": {"color": "#252525", "name": "Черный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-mini-black-select-2020.jpg",
+        "stock": 3,
+        "price": 72000
+      },
+      {
+        "id": 56,
+        "model": "iPhone 12 mini",
+        "title": "iPhone 12 mini 128 ГБ Черный",
+        "memory": "128 ГБ",
+        "color": {"color": "#252525", "name": "Черный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-12-mini-black-select-2020.jpg",
+        "stock": 9,
+        "price": 68000
+      },
+      {
+        "id": 57,
+        "model": "iPhone 11",
+        "title": "iPhone 11 128 ГБ Черный",
+        "memory": "128 ГБ",
+        "color": {"color": "#252525", "name": "Черный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-11-black.jpg",
+        "stock": 5,
+        "price": 45000
+      },
+      {
+        "id": 58,
+        "model": "iPhone 11",
+        "title": "iPhone 11 64 ГБ Черный",
+        "memory": "64 ГБ",
+        "color": {"color": "#252525", "name": "Черный"},
+        "thumbnail": "https://iphoriya.ru/wp-content/uploads/iphone-11-black.jpg",
+        "stock": 3,
+        "price": 40000
       }
     ]
 }
