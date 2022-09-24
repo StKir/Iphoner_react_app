@@ -2,7 +2,6 @@ import MainOffer from "../../mainOffer/MainOffer";
 import MainSlider from "../../mainslider/MainSlider";
 import MainAbout from "../../mainAbout/MainAbout";
 import {Helmet} from "react-helmet";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MainPage = () => {
     return(

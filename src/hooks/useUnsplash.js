@@ -12,7 +12,6 @@ export const useUnsplash = () => {
         const pageNumber = Math.floor(Math.random() * (5 - 1) + 1);
         try{
             const res = await axios.get(`https://api.unsplash.com/search/photos?page=${pageNumber}&per_page=${num}&orientation=landscape&query=${searchTitle}&client_id=${__apiKey}`)
-            
             if(res.status === 200){
                 setLoading(false);
                 setProcess('success');
