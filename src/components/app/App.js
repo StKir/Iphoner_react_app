@@ -5,8 +5,6 @@ import AppHeader from "../appHeader/AppHeader";
 import AppFooter from "../appFooter/AppFoter";
 import Spiner from "../spiner/Spiner";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 const MainPage = lazy(() => import('../pages/mainPage/MainPage'));
 const ShopPage = lazy(() => import('../pages/shopPage/ShopPage'));
 const ItemPage = lazy(() => import('../pages/itemPage/ItemPage'));
