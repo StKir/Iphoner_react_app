@@ -1,4 +1,4 @@
-import './itempage.scss'
+import './itemPage.scss'
 
 import axios from 'axios';
 
