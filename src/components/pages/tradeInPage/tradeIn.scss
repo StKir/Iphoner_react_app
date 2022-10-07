@@ -1,0 +1,111 @@
+@import url('../../../style/RobotoFont.scss');
+@import url('../../../style/JuraFont.scss');
+@import url('../../../style/colors.scss');
+.trade-in_wrp{
+    h1{
+        margin-top: 30px;
+    }
+    .trade-in_part{
+        margin-top: 30px;
+        padding-bottom: 10px;
+        h3{
+            margin-bottom: 20px;
+        }
+        .trade-in_grid{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+        }
+    }
+    .damage-score{
+        display: flex;
+        align-items: flex-start;
+        grid-gap: 10px;
+        .damage-score-number{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        p{
+            width: 228px;
+        }
+    }
+    .trade-in-range{
+        margin-top: 25px;
+        .css-14pt78w-MuiSlider-rail, .css-1gv0vcd-MuiSlider-track{
+            color: #3522B0;
+        }
+        .css-eg0mwd-MuiSlider-thumb{
+            width: 30px;
+            height: 30px;   
+            background: #FFFFFF;
+            box-shadow: 0px 0px 4px #3522B0;
+        }
+        .css-nnid7-MuiSlider-valueLabel{
+            background-color: #3522B0;
+
+        }
+    }
+}
+
+.trade-in_item{
+    cursor: pointer;
+    width: 278px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    span{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+    }
+    transition: all .3s ease-in-out;
+}
+.trade-in_item-active{
+    border: none;
+    background-color: #3522B0;
+    span{
+        color:#fff;
+    }
+}
+.trade-in_item:hover{
+    background-color: #3522B0;
+    span{
+        color:#fff;
+    }
+}
+.math-sale{
+    cursor: pointer;
+    width: 500px;
+    height: 58px;
+    background: #3522B0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    transition: all .3s ease-in-out;
+}
+.math-sale:hover{
+    background: #FFF;
+    color: #3522B0;
+    border: 1px solid #3522B0;
+}

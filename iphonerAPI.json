@@ -646,5 +646,81 @@
         "stock": 3,
         "price": 40000
       }
+    ],
+    "tradeIn": [
+      {
+        "id": 59,
+        "model": "Iphone 7",
+        "price": 2000
+      },
+      {
+        "id": 60,
+        "model": "IPhone 7 plus",
+        "price": 2500
+      },
+      {
+        "id": 61,
+        "model": "IPhone 8",
+        "price": 3000
+      },
+      {
+        "id": 62,
+        "model": "IPhone 8 plus",
+        "price": 3300
+      },      {
+        "id": 63,
+        "model": "IPhone X",
+        "price": 4000
+      },      {
+        "id": 64,
+        "model": "IPhone XS",
+        "price": 3000
+      },      {
+        "id": 65,
+        "model": "IPhone XR",
+        "price": 4500
+      },      {
+        "id": 66,
+        "model": "IPhone 11",
+        "price": 5000
+      },      {
+        "id": 67,
+        "model": "IPhone 11 pro",
+        "price": 5500
+      },      {
+        "id": 68,
+        "model": "IPhone 11 pro max",
+        "price": 7000
+      },      {
+        "id": 69,
+        "model": "IPhone SE (2020)",
+        "price": 4000
+      },      {
+        "id": 70,
+        "model": "IPhone 12 mini",
+        "price": 16000
+      },      {
+        "id": 71,
+        "model": "IPhone 12",
+        "price": 16500
+      },      {
+        "id": 72,
+        "model": "IPhone 12 pro",
+        "price": 18000
+      },      {
+        "id": 73,
+        "model": "IPhone 12 pro max",
+        "price": 21000
+      },      {
+        "id": 74,
+        "model": "IPhone 13",
+        "price": 25000
+      }
+    ],
+    "tradeInKit": [
+      {"id":75, "title": "Полный", "value": 1.5},
+      {"id":76, "title": "Только зарядник", "value": 1.3},
+      {"id":77, "title": "Только коробка", "value": 1.1},
+      {"id":78, "title": "Только айфон", "value": 1}
     ]
 }
