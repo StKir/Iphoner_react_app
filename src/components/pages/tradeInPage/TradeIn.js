@@ -5,15 +5,14 @@ import './tradeIn.scss'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { useMemo } from 'react';
 
 const TradeIn = () => {
-    const [models, setModels] = useState([])
-    const [kitInfo, setkitInfo] = useState([])
-    const [modelPrice, setModelPrice] = useState(null)
-    const [kit, setKit] = useState(null)
-    const [damage, setDamage] = useState(1)
-    const [total, setTotal] = useState(null)
+    const [models, setModels] = useState([]);
+    const [kitInfo, setkitInfo] = useState([]);
+    const [modelPrice, setModelPrice] = useState(null);
+    const [kit, setKit] = useState(null);
+    const [damage, setDamage] = useState(1);
+    const [total, setTotal] = useState(null);
 
     const setModel = (value) => {
         setModelPrice(value)
@@ -47,17 +46,25 @@ const TradeIn = () => {
                     setKit={() => setKit(props)}/>
         })
     }
-    console.log(total);
     const checkForm = (e) => {
         e.preventDefault()
         setTotal({
-            model: modelPrice? ("error"): (modelPrice),
-            kit: kit? ("error"): (kit),
+            model: modelPrice? (modelPrice): ("error"),
+            kit: kit? (kit): ("error"),
             damage,
         })
         console.log(total);
     }
 
+    const calcFullPrice = (total) => {
+        if(total && total.model !== 'error' && total.kit !== 'error'){
+            return Math.floor(total.model.price * total.kit.value * (total.damage / 10))
+        } else {
+            return false
+        }
+    }
+
+    const renderFullPrice = calcFullPrice(total)
     const modelsArr = renderModels(models)
     const kitArr = renderKit(kitInfo)
     return(
@@ -70,12 +77,14 @@ const TradeIn = () => {
                     <div className='trade-in_grid'>
                         {modelsArr}
                     </div>
+                    {total?.model === 'error'? (<div className='error-part'>Выберете модель</div>): null}
                 </div>
                 <div className='trade-in_part patr-2'>
                     <h3>Шаг 2. Комплект</h3>
                     <div className='trade-in_grid'>
                         {kitArr}
                     </div>
+                    {total?.kit === 'error'? (<div className='error-part'>Выберете комплект</div>): null}
                 </div>
                 <div className='trade-in_part patr-3'>
                     <h3>Шаг 3. Оцените состояние</h3>
@@ -121,6 +130,7 @@ const TradeIn = () => {
                 <button className='math-sale' onClick={(e) => checkForm(e)}>
                     Рассчитать
                 </button>
+                {renderFullPrice? (<ViewPrice price={renderFullPrice}/>): null}
             </div>
         </section>
     )
@@ -146,13 +156,14 @@ const ItemKit = (props) => {
     )
 }
 
-const ErrorText = (props) => {
-    return (
-            <div 
-            className={props.checked? ("trade-in_item trade-in_item-active"): ('trade-in_item')}
-            onClick={props.setKit}>
-                <span className='item-name'>{props.title}</span>
-            </div>
+const ViewPrice = ({price}) => {
+    return(
+        <div className='trade-in_price'>
+            <h2>Стоимость устройства</h2>
+            <span className='full-price'>{price} руб</span>
+            <span className='full-price-info'>Предварительная цена выкупа устройства</span>
+            <span className='full-price-offer'>Приходите к нам в салон и получите деньги!</span>
+        </div>
     )
 }
 
