@@ -60,12 +60,17 @@ const MainSlider = () => {
 };
 
 const Slider = (props) => {
+	const [width, setWidth] = useState(428);
+	useEffect(() => {
+		setWidth(window.screen.width <= 1170 ? 278 : 428);
+		console.log(width);
+	}, []);
 	const renderItemsSlider = (arr) => {
 		if (arr) {
 			return arr.map(({ name, id, thumbnail }) => {
 				const routerName = name.replace(/ /g, '_');
 				return (
-					<SwiperSlide style={{ width: 428 }} key={id}>
+					<SwiperSlide style={{ width: width }} key={id}>
 						<div className='slider_item'>
 							<img src={thumbnail} alt={name} />
 							<div className='slider_item_info'>

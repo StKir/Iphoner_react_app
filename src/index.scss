@@ -59,3 +59,21 @@ h2 {
 	line-height: 57px;
 	color: #0b0725;
 }
+
+@media screen and (max-width: 1170px) {
+	.container {
+		width: 720px;
+	}
+	h2 {
+		font-style: normal;
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 38px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.container {
+		width: 320px;
+	}
+}

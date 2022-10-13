@@ -46,6 +46,14 @@ section {
 			transform: translateY(-5px);
 		}
 	}
+	@media screen and (max-width: 1170px) {
+		h2 {
+			font-style: normal;
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 38px;
+		}
+	}
 }
 
 .active_slider_btn {
@@ -86,11 +94,40 @@ section {
 			color: $purple;
 		}
 	}
+	@media screen and (max-width: 1170px) {
+		width: 278px;
+		height: 108px;
+		img {
+			width: 62px;
+			height: 78px;
+		}
+		.slider_item_info {
+			h4 {
+				font-style: normal;
+				font-weight: 700;
+				font-size: 18px;
+				line-height: 21px;
+				width: 150px;
+			}
+			a {
+				font-style: normal;
+				font-weight: 300;
+				font-size: 16px;
+				line-height: 19px;
+			}
+		}
+	}
 }
 .plite-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 20px;
+	@media screen and (max-width: 1170px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media screen and (max-width: 720px) {
+		display: block;
+	}
 }
 .plite_wrp {
 	width: 278px;
@@ -124,6 +161,12 @@ section {
 			text-decoration-line: underline;
 			color: $purple;
 		}
+	}
+	@media screen and (max-width: 1170px) {
+		width: 100%;
+	}
+	@media screen and (max-width: 720px) {
+		margin-bottom: 10px;
 	}
 }
 .plite_wrp:hover {

@@ -39,6 +39,30 @@ section {
 		animation-iteration-count: infinite;
 		animation-direction: alternate-reverse;
 	}
+	@media screen and (max-width: 1170px) {
+		border-radius: 20px;
+		padding: 20px;
+		&_txt {
+			h2 {
+				font-style: normal;
+				font-weight: 700;
+				font-size: 32px;
+				line-height: 38px;
+				width: 340px;
+			}
+			p {
+				font-style: normal;
+				font-weight: 300;
+				font-size: 16px;
+				line-height: 19px;
+				width: 320px;
+			}
+		}
+		img {
+			width: 149px;
+			height: 188px;
+		}
+	}
 }
 
 @keyframes pump {
@@ -97,7 +121,42 @@ section {
 			width: 240px;
 		}
 	}
+	@media screen and (max-width: 1170px) {
+		border-radius: 20px;
+		padding: 10px;
+		.popular-sticker {
+			margin: 0 auto;
+			span {
+				font-weight: 700;
+				font-size: 18px;
+				line-height: 21px;
+				color: #ffffff;
+			}
+		}
+		&_txt {
+			h4 {
+				width: 142px;
+				font-family: 'Jura';
+				font-style: normal;
+				font-weight: 700;
+				font-size: 20px;
+				margin-top: 40px;
+				line-height: 24px;
+				margin-bottom: 10px;
+			}
+			p {
+				font-style: normal;
+				font-weight: 300;
+				font-size: 14px;
+				line-height: 16px;
+				width: 142px;
+			}
+		}
+	}
 }
 .mainoffer_block_popular:hover {
 	transform: translateY(-15px);
+}
+
+@media screen and (max-width: 1170px) {
 }
