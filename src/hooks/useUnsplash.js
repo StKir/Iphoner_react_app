@@ -5,6 +5,7 @@ export const useUnsplash = () => {
 	const [loading, setLoading] = useState(false);
 	const [process, setProcess] = useState('waiting');
 	const __apiKey = 'ryhIYmsQ0dsktKFIWY4eRJAi5bgHfngUi_pq2viDlxI';
+	// console.log(process.env.APIKEY);
 
 	const request = useCallback(async (searchTitle, num = 8) => {
 		setLoading(true);

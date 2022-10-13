@@ -20,12 +20,12 @@ const TradeIn = () => {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:3001/tradeIn')
+			.get('https://d5d2701mecin7jur8alg.apigw.yandexcloud.net/tradiIn')
 			.then((data) => setModels(data.data))
 			.catch((err) => console.log(err));
 
 		axios
-			.get('http://localhost:3001/tradeInKit')
+			.get('https://d5d2701mecin7jur8alg.apigw.yandexcloud.net/tradiInKit')
 			.then((data) => setkitInfo(data.data))
 			.catch((err) => console.log(err));
 	}, []);

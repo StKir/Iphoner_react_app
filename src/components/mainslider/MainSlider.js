@@ -21,7 +21,7 @@ const MainSlider = () => {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:3001/iphons')
+			.get('https://d5d2701mecin7jur8alg.apigw.yandexcloud.net/iphons')
 			.then((data) => SetData(data.data))
 			.catch((err) => console.log(err));
 		// eslint-disable-next-line

@@ -19,7 +19,7 @@ const ItemPage = () => {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:3001/stock')
+			.get('https://d5d2701mecin7jur8alg.apigw.yandexcloud.net/stock')
 			.then((data) =>
 				setIphon(data.data.filter(({ title }) => title === routerName)[0])
 			)
