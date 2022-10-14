@@ -49,3 +49,12 @@ footer {
 		}
 	}
 }
+@media screen and (max-width: 720px) {
+	.footer_logo {
+		display: flex;
+		justify-content: center;
+		h3 {
+			display: none;
+		}
+	}
+}

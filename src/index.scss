@@ -74,6 +74,10 @@ h2 {
 
 @media screen and (max-width: 720px) {
 	.container {
-		width: 320px;
+		width: 100%;
+		padding: 0 20px;
+	}
+	section {
+		margin-top: 35px !important;
 	}
 }

@@ -5,6 +5,9 @@ section {
 .mainOffer {
 	display: flex;
 	justify-content: space-between;
+	@media screen and (max-width: 720px) {
+		display: block;
+	}
 }
 
 .mainoffer_block-offer {
@@ -61,6 +64,23 @@ section {
 		img {
 			width: 149px;
 			height: 188px;
+		}
+	}
+	@media screen and (max-width: 720px) {
+		display: block;
+		margin: 0 auto;
+		&_txt {
+			text-align: center;
+
+			h2,
+			p {
+				width: 100%;
+			}
+		}
+		img {
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
 		}
 	}
 }
@@ -153,10 +173,27 @@ section {
 			}
 		}
 	}
+	@media screen and (max-width: 720px) {
+		margin-top: 20px;
+		width: 100%;
+		background-size: 80%;
+		.popular-sticker {
+			border-radius: 10px;
+			width: 98%;
+			span {
+				text-align: center;
+				display: block;
+			}
+		}
+		&_txt {
+			h4,
+			p {
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
 }
 .mainoffer_block_popular:hover {
 	transform: translateY(-15px);
-}
-
-@media screen and (max-width: 1170px) {
 }
