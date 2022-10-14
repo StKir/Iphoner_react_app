@@ -7,10 +7,14 @@
 		display: block;
 	}
 	width: 277px;
-	height: 331px;
+	// height: 331px;
 	padding: 20px;
 	background: #fff;
 	border-radius: 25px;
+	@media screen and (max-width: 1170px) {
+		padding: 10px;
+		width: 164px;
+	}
 	a {
 		display: flex;
 	}
@@ -41,6 +45,20 @@
 		}
 		&-number {
 			color: $gray;
+		}
+		@media screen and (max-width: 1170px) {
+			h5 {
+				font-style: normal;
+				font-weight: 700;
+				font-size: 14px;
+				line-height: 17px;
+			}
+			span {
+				font-style: normal;
+				font-weight: 400;
+				font-size: 12px;
+				line-height: 14px;
+			}
 		}
 	}
 	.Iphone_item_pay {
@@ -101,6 +119,52 @@
 			}
 			img {
 				display: none;
+			}
+		}
+		@media screen and (max-width: 1170px) {
+			margin-top: 5px;
+			display: block;
+			&_price {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	@media screen and (max-width: 1170px) {
+		border-radius: 15px;
+	}
+	@media screen and (max-width: 720px) {
+		width: 100%;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-areas:
+			'A A A   B B B'
+			'A A A   C C C';
+
+		a {
+			grid-area: A;
+		}
+		.Iphone_item_info {
+			grid-area: B;
+			h5 {
+				font-style: normal;
+				font-weight: 700;
+				font-size: 14px;
+				line-height: 17px;
+			}
+		}
+		.Iphone_item_pay {
+			grid-area: C;
+			&_basket {
+				img {
+					width: 16px;
+					height: 16px;
+				}
+				span {
+					font-style: normal;
+					font-weight: 400;
+					font-size: 12px;
+					line-height: 14px;
+				}
 			}
 		}
 	}
