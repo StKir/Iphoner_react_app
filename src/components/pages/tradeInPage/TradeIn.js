@@ -5,6 +5,7 @@ import './tradeIn.scss';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { useMemo } from 'react';
 
 const TradeIn = () => {
 	const [models, setModels] = useState([]);
@@ -74,7 +75,10 @@ const TradeIn = () => {
 		}
 	};
 
-	const renderFullPrice = calcFullPrice(total);
+	const renderFullPrice = useMemo(() => {
+		return calcFullPrice(total);
+		// eslint-disable-next-line
+	}, [total?.model.price, total?.kit.value, total?.damage]);
 	const modelsArr = renderModels(models);
 	const kitArr = renderKit(kitInfo);
 	return (
