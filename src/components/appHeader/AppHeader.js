@@ -2,17 +2,19 @@ import './appHeader.scss';
 import { Link } from 'react-router-dom';
 
 import AppModal from '../appModal/AppModal';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import logo from '../../assets/logo/logo.png';
 import map from '../../assets/icons/bx_map.svg';
 import phone from '../../assets/icons/ci_phone-outline.svg';
 import time from '../../assets/icons/access-time.svg';
+import { selectAll } from '../../store/basketSlice';
 
 import { useState } from 'react';
 
-const AppHeader = ({ Counter }) => {
+const AppHeader = () => {
 	const [active, setActive] = useState(false);
+	const items = useSelector(selectAll);
 	return (
 		<header>
 			<AppModal active={active} setActive={setActive} />
@@ -50,8 +52,8 @@ const AppHeader = ({ Counter }) => {
 					</div>
 					<Link to={`/basket`} className='basket'>
 						<div className='basket-info'>
-							{Counter > 0 ? (
-								<span className='basket-counter'>{Counter}</span>
+							{items.length > 0 ? (
+								<span className='basket-counter'>{items.length}</span>
 							) : null}
 							<svg
 								width='27'
@@ -81,10 +83,4 @@ const AppHeader = ({ Counter }) => {
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {
-		Counter: state.basket.ids.length
-	};
-};
-export default connect(mapStateToProps)(AppHeader);
-// export default AppHeader;
+export default AppHeader;
