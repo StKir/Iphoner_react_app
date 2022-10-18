@@ -31,6 +31,16 @@
 	.img-6 {
 		grid-area: H;
 	}
+	@media screen and (max-width: 1170px) {
+		grid-gap: 10px;
+		img {
+			max-height: 170px;
+		}
+	}
+	@media screen and (max-width: 720px) {
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 .gridType-1 {
 	grid-template-areas:

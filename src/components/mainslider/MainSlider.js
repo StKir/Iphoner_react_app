@@ -63,7 +63,6 @@ const Slider = (props) => {
 	const [width, setWidth] = useState(428);
 	useEffect(() => {
 		setWidth(window.screen.width <= 1170 ? 278 : 428);
-		console.log(width);
 	}, []);
 	const renderItemsSlider = (arr) => {
 		if (arr) {

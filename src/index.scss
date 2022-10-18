@@ -61,6 +61,9 @@ h2 {
 }
 
 @media screen and (max-width: 1170px) {
+	section {
+		margin-top: 60px !important;
+	}
 	.container {
 		width: 720px;
 	}

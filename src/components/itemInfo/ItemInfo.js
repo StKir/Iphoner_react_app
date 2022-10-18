@@ -21,6 +21,32 @@ const ItemInfo = (props) => {
 	const [addStauts, setaddStauts] = useState(false);
 	const [overlay, setOverlay] = useState(false);
 	const basketInfo = useSelector(getAllItemsId);
+	const [screenImgSize, setScreenImgSize] = useState({
+		width: 555,
+		height: 535,
+		zoomWidth: 500
+	});
+
+	const changeImgSize = () => {
+		if (window.screen.width < 1170) {
+			setScreenImgSize({
+				width: window.screen.width > 720 ? 329 : 282,
+				height: window.screen.width > 720 ? 410 : 352,
+				zoomWidth: window.screen.width > 720 ? 300 : 282
+			});
+		} else {
+			setScreenImgSize({
+				width: 555,
+				height: 535,
+				zoomWidth: 500
+			});
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('resize', changeImgSize);
+		return () => window.removeEventListener('resize', changeImgSize);
+	}, []);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -47,11 +73,10 @@ const ItemInfo = (props) => {
 	const onAddItem = (obj) => {
 		dispatch(basketAddItem(obj));
 	};
-
 	const imgZoomProps = {
-		width: 555,
-		height: 535,
-		zoomWidth: 500,
+		width: screenImgSize.width,
+		height: screenImgSize.height,
+		zoomWidth: screenImgSize.zoomWidth,
 		zoomPosition: 'original',
 		img: `${thumbnail}`
 	};
