@@ -14,7 +14,51 @@ import { useState } from 'react';
 
 const AppHeader = () => {
 	const [active, setActive] = useState(false);
+	const [infoType, setinfoType] = useState(null);
 	const items = useSelector(selectAll);
+
+	const infoState = {
+		phone: '+7(950)-603-XX-X',
+		address: 'г.Нижний Новгород ул. Заярская 99',
+		workTime: 'Пн-Пт 10:00 - 20:00 Сб-Вс 10:00 - 18:00'
+	};
+
+	const renderInfoForPhone = () => {
+		const data = () => {
+			switch (infoType) {
+				case 'phone':
+					return (
+						<div className='mobileInfo-items-phone'>
+							<span className='phone_number'>{infoState.phone}</span>
+							<span
+								className='phone_call mobile-type'
+								onClick={() => {
+									setActive(true);
+								}}
+							>
+								Обратный звонок
+							</span>
+						</div>
+					);
+				case 'address':
+					return <span className='info-item'>{infoState.address}</span>;
+				case 'time':
+					return <span className='info-item'>{infoState.workTime}</span>;
+				default:
+					return;
+			}
+		};
+		if (window.screen.width < 720 && infoType) {
+			return (
+				<div className='info_for_phone' onClick={() => setinfoType(null)}>
+					{data()}
+				</div>
+			);
+		} else {
+			return;
+		}
+	};
+
 	return (
 		<header>
 			<AppModal active={active} setActive={setActive} />
@@ -24,16 +68,14 @@ const AppHeader = () => {
 						<img src={logo} alt='logo' />
 						<span className='logo_txt'>Айфонер</span>
 					</Link>
-					<div className='header-item'>
+					<div className='header-item' onClick={() => setinfoType('address')}>
 						<img src={map} alt='map' />
-						<span className='head_info info'>
-							г.Нижний Новгород ул. Заярская 99
-						</span>
+						<span className='head_info info'>{infoState.address}</span>
 					</div>
-					<div className='header-item'>
+					<div className='header-item' onClick={() => setinfoType('phone')}>
 						<img src={phone} alt='phone' />
 						<div className='phone_info info'>
-							<span className='phone_number'>+7(950)-603-XX-X</span>
+							<span className='phone_number'>{infoState.phone}</span>
 							<span
 								className='phone_call'
 								onClick={() => {
@@ -44,11 +86,9 @@ const AppHeader = () => {
 							</span>
 						</div>
 					</div>
-					<div className='header-item'>
+					<div className='header-item' onClick={() => setinfoType('time')}>
 						<img src={time} alt='time' />
-						<span className='time_info info'>
-							Пн-Пт 10:00 - 20:00 Сб-Вс 10:00 - 18:00
-						</span>
+						<span className='time_info info'>{infoState.workTime}</span>
 					</div>
 					<Link to={`/basket`} className='basket'>
 						<div className='basket-info'>
@@ -78,6 +118,7 @@ const AppHeader = () => {
 						</div>
 					</Link>
 				</div>
+				{window.screen.width < 720 ? renderInfoForPhone() : null}
 			</div>
 		</header>
 	);

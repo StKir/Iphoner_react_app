@@ -2,7 +2,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import iphons from './iphonsSlice';
 import filters from './filtersSlice';
 import basket from './basketSlice';
-
 import {
 	persistStore,
 	persistReducer,
