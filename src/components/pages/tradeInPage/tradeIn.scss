@@ -15,6 +15,9 @@
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
 			grid-gap: 20px;
+			@media screen and (max-width: 720px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
 		}
 	}
 	.damage-score {
@@ -37,6 +40,24 @@
 		}
 		p {
 			width: 228px;
+			@media screen and (max-width: 1170px) {
+				width: 125px;
+				font-style: normal;
+				font-weight: 300;
+				font-size: 16px;
+				line-height: 19px;
+				margin-top: 10px;
+			}
+		}
+		@media screen and (max-width: 1170px) {
+			display: block;
+		}
+		@media screen and (max-width: 720px) {
+			display: flex;
+			// flex-wrap: wrap;
+			p {
+				width: 100%;
+			}
 		}
 	}
 	.trade-in-range {
@@ -73,6 +94,19 @@
 		line-height: 28px;
 	}
 	transition: all 0.3s ease-in-out;
+	@media screen and (max-width: 1170px) {
+		width: 165px;
+		span {
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 24px;
+			width: 80%;
+			text-align: center;
+		}
+	}
+	@media screen and (max-width: 720px) {
+		width: 100%;
+	}
 }
 .trade-in_item-active {
 	border: none;
@@ -104,6 +138,9 @@
 	line-height: 24px;
 	color: #ffffff;
 	transition: all 0.3s ease-in-out;
+	@media screen and (max-width: 720px) {
+		width: 100%;
+	}
 }
 .math-sale:hover {
 	background: #fff;
@@ -153,5 +190,11 @@
 			line-height: 23px;
 			color: #000000;
 		}
+	}
+	@media screen and (max-width: 720px) {
+		h2 {
+			text-align: center;
+		}
+		padding: 20px;
 	}
 }

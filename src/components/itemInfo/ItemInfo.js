@@ -44,6 +44,7 @@ const ItemInfo = (props) => {
 	};
 
 	useEffect(() => {
+		changeImgSize();
 		window.addEventListener('resize', changeImgSize);
 		return () => window.removeEventListener('resize', changeImgSize);
 	}, []);
