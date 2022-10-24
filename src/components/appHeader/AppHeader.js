@@ -118,7 +118,7 @@ const AppHeader = () => {
 						</div>
 					</Link>
 				</div>
-				{window.screen.width < 720 ? renderInfoForPhone() : null}
+				{renderInfoForPhone()}
 			</div>
 		</header>
 	);

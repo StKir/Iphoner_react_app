@@ -17,7 +17,7 @@ const BasketItem = ({
 		<div className='basket_iphone-item'>
 			<div className='basket_iphone-item_main-info'>
 				<img src={thumbnail} alt={title} />
-				<div className='info'>
+				<div className='infoPhone'>
 					<h4>{title}</h4>
 					<span>
 						{memory} {color.name}
