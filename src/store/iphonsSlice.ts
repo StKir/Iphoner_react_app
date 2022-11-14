@@ -2,30 +2,41 @@ import {
 	createSlice,
 	createAsyncThunk,
 	createEntityAdapter,
-	createSelector
+	createSelector,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { filters, Iphone } from '../types/reduxTypes';
+import { RootState } from './store';
 
-const iphonsAdater = createEntityAdapter();
+const iphonsAdater = createEntityAdapter<Iphone>();
 
-const initialState = iphonsAdater.getInitialState({
+type iphoneAdaterType = {
+	iphonsLoadingStatus: 'idle' | 'loading' | 'error',
+	selectedIphon: Iphone | null,
+	entities: {}
+	ids: []
+}
+
+const initialState = {
+	entities: {},
+    ids: [],
 	iphonsLoadingStatus: 'idle',
 	selectedIphon: null
-});
+} as iphoneAdaterType
 
-export const fetchIphons = createAsyncThunk(
+export const fetchIphons = createAsyncThunk<Iphone[], string>(
 	'iphons/fetchIphons',
 	async (modelIphon) => {
 		return await axios
 			.get('https://d5d2701mecin7jur8alg.apigw.yandexcloud.net/stock')
-			.then((data) => data.data.filter(({ model }) => modelIphon === model));
+			.then((data) => data.data.filter((el:Iphone ) => modelIphon === el.model));
 	}
 );
 
 const iphonsSlice = createSlice({
 	name: 'iphons',
 	initialState,
-	reducers: null,
+	reducers: {},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchIphons.pending, (state) => {
@@ -41,16 +52,16 @@ const iphonsSlice = createSlice({
 	}
 });
 
-const { actions, reducer } = iphonsSlice;
+const { reducer } = iphonsSlice;
 
-export const { selectAll } = iphonsAdater.getSelectors((state) => state.iphons);
+export const { selectAll } = iphonsAdater.getSelectors<RootState>((state) => state.iphons);
 
 export default reducer;
 
-export const filteredIphoneSelector = createSelector(
-	selectAll,
-	(state) => state.filters,
-	(iphons, filter) => {
+export const filteredIphoneSelector= createSelector(
+	[selectAll,
+	(state => state.filters)],
+	(iphons, filter: filters) => {
 		return iphons.filter(
 			({ color, price, memory }) =>
 				(color.name === filter.filterColor || filter.filterColor === 'none') &&

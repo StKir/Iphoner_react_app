@@ -2,20 +2,22 @@ import './appHeader.scss';
 import { Link } from 'react-router-dom';
 
 import AppModal from '../appModal/AppModal';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks/tsHooks';
 
 import logo from '../../assets/logo/logo.png';
 import map from '../../assets/icons/bx_map.svg';
 import phone from '../../assets/icons/ci_phone-outline.svg';
 import time from '../../assets/icons/access-time.svg';
+
 import { selectAll } from '../../store/basketSlice';
 
 import { useState } from 'react';
+import React from 'react';
 
-const AppHeader = () => {
+const AppHeader: React.FC = () => {
 	const [active, setActive] = useState(false);
-	const [infoType, setinfoType] = useState(null);
-	const items = useSelector(selectAll);
+	const [infoType, setinfoType] = useState('null');
+	const items = useAppSelector(selectAll);
 
 	const infoState = {
 		phone: '+7(950)-603-XX-X',
@@ -50,7 +52,7 @@ const AppHeader = () => {
 		};
 		if (window.screen.width < 720 && infoType) {
 			return (
-				<div className='info_for_phone' onClick={() => setinfoType(null)}>
+				<div className='info_for_phone' onClick={() => setinfoType('null')}>
 					{data()}
 				</div>
 			);

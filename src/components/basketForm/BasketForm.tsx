@@ -1,14 +1,15 @@
 import './basketForm.scss';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Helmet } from 'react-helmet';
+import { propsBasketForm } from '../../types/reduxTypes';
 
-const BasketForm = ({ items, SetStatus }) => {
-	const [formType, SetFormType] = useState(null);
+const BasketForm: React.FC<propsBasketForm> = ({ items, SetStatus }) => {
+	const [formType, SetFormType] = useState<string>('');
 
-	const order = items.map(({ props }) => {
+	const order = items.map(({ props }: any) => {
 		return {
 			title: props.title,
 			counter: props.counter,
@@ -17,14 +18,12 @@ const BasketForm = ({ items, SetStatus }) => {
 		};
 	});
 
-	const renderForm = (type) => {
+	const renderForm = (type: string) => {
 		switch (type) {
 			case 'delivery':
-				return (
-					<BasketFormDelivery items={order} SetStatus={() => SetStatus()} />
-				);
+				return <BasketFormDelivery items={order} SetStatus={() => SetStatus} />;
 			case 'pickup':
-				return <BasketFormPickUp items={order} SetStatus={() => SetStatus()} />;
+				return <BasketFormPickUp items={order} SetStatus={() => SetStatus} />;
 			default:
 				return null;
 		}
@@ -107,7 +106,17 @@ const BasketForm = ({ items, SetStatus }) => {
 	);
 };
 
-const BasketFormDelivery = ({ items, SetStatus }) => {
+type formOrder = {
+	items: {
+		title: any;
+		counter: any;
+		price: any;
+		total: number;
+	}[];
+	SetStatus: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const BasketFormDelivery = ({ items, SetStatus }: formOrder) => {
 	const formik = useFormik({
 		initialValues: {
 			name: '',
@@ -248,7 +257,7 @@ const BasketFormDelivery = ({ items, SetStatus }) => {
 	);
 };
 
-const BasketFormPickUp = ({ items, SetStatus }) => {
+const BasketFormPickUp = ({ items, SetStatus }: formOrder) => {
 	const formik = useFormik({
 		initialValues: {
 			name: '',
@@ -320,7 +329,7 @@ const BasketFormPickUp = ({ items, SetStatus }) => {
 							onBlur={formik.handleBlur}
 							value='today'
 						/>
-						<span htmlFor='today'>Сегодня</span>
+						<span>Сегодня</span>
 					</label>
 					<label className='date-type' htmlFor='tomorrow'>
 						<input
@@ -331,7 +340,7 @@ const BasketFormPickUp = ({ items, SetStatus }) => {
 							onBlur={formik.handleBlur}
 							value='tomorrow'
 						/>
-						<span htmlFor='tomorrow'>Завтра</span>
+						<span>Завтра</span>
 					</label>
 				</div>
 				<button className='sub-form' type='submit'>

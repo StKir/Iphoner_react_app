@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { filters, filterCoast } from '../types/reduxTypes';
 
 const initialState = {
 	filterDisplay: 'По умолчанию',
@@ -8,23 +9,23 @@ const initialState = {
 	},
 	filterMemory: 'none',
 	filterColor: 'none'
-};
+} as filters;
 
 const FilterSlice = createSlice({
 	name: 'filter',
 	initialState,
 	reducers: {
-		filterChangeDisplay: (state, { payload }) => {
+		filterChangeDisplay: (state, {payload}: PayloadAction<string>) => {
 			state.filterDisplay = payload;
 		},
-		filterChangeCoast: (state, { payload }) => {
+		filterChangeCoast: (state, {payload}: PayloadAction<filterCoast>) => {
 			state.filterCoast.ot = payload.ot;
 			state.filterCoast.do = payload.do;
 		},
 		filterChangeMemory: (state, { payload }) => {
 			state.filterMemory = payload;
 		},
-		filterChangeColor: (state, { payload }) => {
+		filterChangeColor: (state, { payload }: PayloadAction<string>) => {
 			state.filterColor = payload;
 		},
 		filterReset: (state) => {

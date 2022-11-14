@@ -11,17 +11,18 @@ import ItemInfo from '../../itemInfo/ItemInfo';
 import ItemImgGrid from '../../itemImgGrid/ItemImgGrid';
 
 import { useEffect, useState } from 'react';
+import { Iphone } from '../../../types/reduxTypes';
 
 const ItemPage = () => {
 	const { title } = useParams();
-	const routerName = title.replace(/_/g, ' ');
-	const [iphon, setIphon] = useState(null);
+	const routerName = title?.replace(/_/g, ' ');
+	const [iphon, setIphon] = useState<Iphone>();
 
 	useEffect(() => {
 		axios
 			.get('https://d5d2701mecin7jur8alg.apigw.yandexcloud.net/stock')
 			.then((data) =>
-				setIphon(data.data.filter(({ title }) => title === routerName)[0])
+				setIphon(data.data.filter((el: Iphone) => el.title === routerName)[0])
 			)
 			.catch((err) => console.log(err));
 		// eslint-disable-next-line

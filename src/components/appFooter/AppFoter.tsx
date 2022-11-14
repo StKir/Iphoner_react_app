@@ -4,12 +4,12 @@ import map from '../../assets/icons/bx_map-white.svg';
 import phone from '../../assets/icons/ci_phone-outline_white.svg';
 import time from '../../assets/icons/access-time_hitw.svg';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import AppModal from '../appModal/AppModal';
 import { Link } from 'react-router-dom';
 
-const AppFooter = () => {
-	const [active, setActive] = useState(false);
+const AppFooter: React.FC = () => {
+	const [active, setActive] = useState<boolean>(false);
 	return (
 		<footer>
 			<AppModal active={active} setActive={setActive} />

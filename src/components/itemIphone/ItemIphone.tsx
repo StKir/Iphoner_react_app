@@ -1,16 +1,17 @@
 import basket from '../../assets/icons/akar-icons_basket_white.svg';
 import './itemIphone.scss';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
 import { basketAddItem, getAllItemsId } from '../../store/basketSlice';
+import { TonAddItem } from '../../types/reduxTypes';
 
-const ItemIphone = (props) => {
+const ItemIphone = (props: any) => {
 	const { title, memory, color, thumbnail, stock, model, price, id } = props;
 	const routerName = title.replace(/ /g, '_');
-	const basketInfo = useSelector(getAllItemsId);
-	const dispatch = useDispatch();
+	const basketInfo = useAppSelector(getAllItemsId);
+	const dispatch = useAppDispatch();
 
-	const onAddItem = (obj) => {
+	const onAddItem: TonAddItem = (obj) => {
 		dispatch(basketAddItem(obj));
 	};
 

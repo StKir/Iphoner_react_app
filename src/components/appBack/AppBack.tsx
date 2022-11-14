@@ -1,6 +1,8 @@
 import './appBack.scss';
 import { useNavigate } from 'react-router-dom';
-const AppBack = () => {
+import React from 'react';
+
+const AppBack: React.FC = () => {
 	const navigate = useNavigate();
 	return (
 		<div className='back' onClick={() => navigate(-1)}>

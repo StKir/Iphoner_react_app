@@ -1,6 +1,7 @@
 import './basketItem.scss';
 import minus from '../../assets/icons/minus.svg';
 import plus from '../../assets/icons/plus.svg';
+import { TBasketItem } from '../../types/reduxTypes';
 
 const BasketItem = ({
 	title,
@@ -12,7 +13,7 @@ const BasketItem = ({
 	onChangeCountInc,
 	onChangeCountDec,
 	onDelete
-}) => {
+}: TBasketItem) => {
 	return (
 		<div className='basket_iphone-item'>
 			<div className='basket_iphone-item_main-info'>

@@ -1,0 +1,257 @@
+[33mcommit a7406c967f088421390ff47483e8841efb3dd6ee[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mTypeScript[m[33m)[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Mon Oct 24 18:45:16 2022 +0300
+
+    version 2.0 100%
+
+[33mcommit caa8fea610a2135d1a6a0bce32b3d74c99b093bb[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Mon Oct 24 18:13:19 2022 +0300
+
+    adaptive basket page
+
+[33mcommit 5bc1eb4e482118b8b77651bfa23605c5e54d042c[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Oct 20 17:23:27 2022 +0300
+
+    phone menu update
+
+[33mcommit bfe4410e1812637d26d9a472f994512e9ae12d70[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Wed Oct 19 17:52:36 2022 +0300
+
+    basket save local with redux-persist
+
+[33mcommit ae856c1915699537a5dbda8ad162cf234f7022e8[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Oct 18 20:36:29 2022 +0300
+
+    update trade-in page
+
+[33mcommit 74bedffc46cdd0de032a6b7dc73d9b6581145471[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Oct 18 19:45:48 2022 +0300
+
+    update header
+
+[33mcommit 880a6559c08c139d5c7b3f508a1b298db3b0398e[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Oct 18 19:32:33 2022 +0300
+
+    adative item page
+
+[33mcommit 5cdbd90c9e4f590dc3c6c7fd359ab93f8776acc9[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Fri Oct 14 20:50:22 2022 +0300
+
+    adaptive shop-page
+
+[33mcommit e041c43ccb3a0d395745acd8f68a819f87436f53[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Fri Oct 14 18:52:33 2022 +0300
+
+    adativ main page
+
+[33mcommit 62e637687a74b520ce99c732f49faa592a3e1a79[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Oct 13 19:24:52 2022 +0300
+
+    adaptive main-page
+
+[33mcommit 480e32f7adc10d4e262dd44451b5abe89c7a3e72[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Oct 13 18:03:30 2022 +0300
+
+    v2.2
+
+[33mcommit 65bf0d0c5332c15d01ec1c698a1619ca15fe63bb[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Oct 13 17:44:30 2022 +0300
+
+    сделал api через yandex cloud
+
+[33mcommit 4badc5164309566d7642f0ce33498f64868684b3[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Sat Oct 8 16:48:38 2022 +0300
+
+    add preitter
+
+[33mcommit 612eca58de1b8a17f0db08414173b439d859d990[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Sat Oct 8 16:19:26 2022 +0300
+
+    2.1v
+
+[33mcommit d06ac43f4c8d7fbebde198dee7aa086bb78947fb[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Fri Oct 7 19:04:07 2022 +0300
+
+    trade in 50%
+
+[33mcommit bfc2961110a846c55f20527ade98bb6735b193bd[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Oct 4 18:27:57 2022 +0300
+
+    Исправил ошибку с scss
+
+[33mcommit e37089bcafbb405f757fc6e2b7adb25541922846[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Mon Oct 3 17:22:43 2022 +0300
+
+    r
+
+[33mcommit fccb77ee860df0b5ec6ff1fcd24ba78acf95b371[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Sat Sep 24 13:27:32 2022 +0300
+
+    1.2
+
+[33mcommit de4cd156f35d2754adf187fc1407ba27a90f6bea[m
+Author: Kirill <kirillstrukov2@gmail.com>
+Date:   Sat Sep 24 12:21:43 2022 +0300
+
+    (
+
+[33mcommit bf575bac5accca172771524f504b90e7ab1892e0[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Sep 13 20:02:39 2022 +0300
+
+    reliz
+
+[33mcommit 92fcbe98bbda89bfea86d2ed69721942be8f2f3c[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Sep 13 19:29:48 2022 +0300
+
+    add readme.md
+
+[33mcommit 1c3934fbbfee4fa09b2e9ffb66edff0be3ab520d[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Sep 13 19:28:29 2022 +0300
+
+    add readme
+
+[33mcommit 3a15f02545459e6a1745da8e4bf6ea57e9f5436c[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Sep 13 19:25:36 2022 +0300
+
+    add readme file
+
+[33mcommit ac3d13c198e4a6ef6af4780a4f0ac1825e6e2c9f[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Mon Sep 12 19:45:32 2022 +0300
+
+    add_favicon
+
+[33mcommit 909ed005fa8aadf6b6be38f1d65909480880010b[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Mon Sep 12 19:39:36 2022 +0300
+
+    v1.0
+
+[33mcommit 120363b356cdb154ea0406a17dba0119aafa90a1[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Fri Sep 9 17:06:36 2022 +0300
+
+    basket-page-rady
+
+[33mcommit 026012484add61c53db0f189fbcd46ca2d7186f0[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Sep 8 19:41:50 2022 +0300
+
+    basket-page-65%
+
+[33mcommit 1e07752165105b8371eba19c2bfe572cce4e6739[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Wed Sep 7 22:40:53 2022 +0300
+
+    basket-page-50%
+
+[33mcommit c468e85bcad10ffee08d1afc446c1fd9d7ec896d[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Wed Sep 7 12:28:44 2022 +0300
+
+    basket-page-40%
+
+[33mcommit d6dcf484336ba0f966e87f9e49370f850679d8ad[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Sep 6 21:09:42 2022 +0300
+
+    basket-10%
+
+[33mcommit 011bb01526b8fc81f05d855b8bd508fce9384c95[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Mon Sep 5 21:15:21 2022 +0300
+
+    item_page-70%
+
+[33mcommit 4c51ab981e2599eac7bf6f6e72ec1c366f9fc111[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Mon Sep 5 17:51:27 2022 +0300
+
+    item_page_50%
+
+[33mcommit 2c981fb7ef65adfa9e0ffeb8eecc7fc6a27eae13[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Sun Sep 4 20:59:15 2022 +0300
+
+    ItemPage-10%
+
+[33mcommit e73155baac691d6d116b9d89b1962f7d8ff1daaa[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Fri Sep 2 18:43:10 2022 +0300
+
+    filters_100%
+
+[33mcommit bb8f7201e8a4e7cdd57ca12263951ff423abf3af[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Sep 1 20:03:14 2022 +0300
+
+    Filters 90%
+
+[33mcommit 48a7be8e2e3249af59b6e8695a07e1c0ec03ec16[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Wed Aug 31 20:07:15 2022 +0300
+
+    filters-80%
+
+[33mcommit 3e09b9ae02f983410bf1d3e647d0151edc4bd930[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Wed Aug 31 17:06:40 2022 +0300
+
+    filter Iphons 50%
+
+[33mcommit be0a576a7cb636492f6f1a8f3ab5472c01cb3e42[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Tue Aug 30 17:41:23 2022 +0300
+
+    item-page-20%
+
+[33mcommit b278020ad72255ab7df8e675b8f5710e214c4b51[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Fri Aug 26 17:07:15 2022 +0300
+
+    main_screen_100%
+
+[33mcommit 3a72e813bfdab129e6fc164060c26d5a0bcbec3a[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Fri Aug 26 13:44:03 2022 +0300
+
+    add slider
+
+[33mcommit 1410d0ca7944ccd414cfca934130f9de87d323f8[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Aug 25 17:47:18 2022 +0300
+
+    first-screen-20%
+
+[33mcommit a666757e755546e1b53a622c00ff977c0050dbe2[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Aug 25 16:12:54 2022 +0300
+
+    first1
+
+[33mcommit 111879a48d450afcb8faf16fbdac5fc2aae59085[m
+Author: Strukov Kirill <kirillstrukov2@gmail.com>
+Date:   Thu Aug 25 13:45:20 2022 +0300
+
+    Initialize project using Create React App

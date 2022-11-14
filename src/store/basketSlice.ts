@@ -1,26 +1,35 @@
 import {
 	createSlice,
 	createEntityAdapter,
-	createSelector
+	createSelector,
+	PayloadAction
 } from '@reduxjs/toolkit';
+import { Iphone } from '../types/reduxTypes';
+import { RootState } from './store';
 
-const basketAdater = createEntityAdapter();
+type basketType = {
+	basketResult: number,
+	entities: {}
+	ids: []
+}
+
+const basketAdater = createEntityAdapter<Iphone>();
 
 const initialState = basketAdater.getInitialState({
 	basketResult: 0
-});
+} as basketType);
 
 const basketSlice = createSlice({
 	name: 'basket',
 	initialState,
 	reducers: {
-		basketAddItem: (state, { payload }) => {
+		basketAddItem: (state, { payload }: PayloadAction<Iphone>) => {
 			basketAdater.addOne(state, payload);
 		},
-		basketRemoveItem: (state, { payload }) => {
+		basketRemoveItem: (state, { payload }: PayloadAction<{id: string | number}>) => {
 			basketAdater.removeOne(state, payload.id);
 		},
-		basketSetTotal: (state, { payload }) => {
+		basketSetTotal: (state, { payload }: PayloadAction<number>) => {
 			state.basketResult = payload;
 		},
 		basketUpdateItem: basketAdater.updateOne,
@@ -33,7 +42,7 @@ const basketSlice = createSlice({
 
 const { actions, reducer } = basketSlice;
 
-export const { selectAll } = basketAdater.getSelectors((state) => state.basket);
+export const { selectAll } = basketAdater.getSelectors<RootState>((state) => state.basket);
 
 export default reducer;
 

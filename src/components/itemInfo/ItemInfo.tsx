@@ -5,22 +5,23 @@ import minus from '../../assets/icons/minus.svg';
 import plus from '../../assets/icons/plus.svg';
 
 import { basketAddItem } from '../../store/basketSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
 
-import ReactImageZoom from 'react-image-zoom'; // выйдает ошибку в консоли Warning: Using...
+// import ReactImageZoom from 'react-image-zoom'; // выйдает ошибку в консоли Warning: Using...
 import { getAllItemsId } from '../../store/basketSlice';
 import AppModal from '../appModal/AppModal';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Iphone } from '../../types/reduxTypes';
 
-const ItemInfo = (props) => {
-	const dispatch = useDispatch();
+const ItemInfo = (props: Iphone) => {
+	const dispatch = useAppDispatch();
 	const { title, memory, color, thumbnail, stock, price, id } = props;
 	const [counter, setCounter] = useState(1);
 	const [addStauts, setaddStauts] = useState(false);
 	const [overlay, setOverlay] = useState(false);
-	const basketInfo = useSelector(getAllItemsId);
+	const basketInfo = useAppSelector(getAllItemsId);
 	const [screenImgSize, setScreenImgSize] = useState({
 		width: 555,
 		height: 535,
@@ -71,7 +72,7 @@ const ItemInfo = (props) => {
 		}
 	};
 
-	const onAddItem = (obj) => {
+	const onAddItem = (obj: Iphone) => {
 		dispatch(basketAddItem(obj));
 	};
 	const imgZoomProps = {
@@ -93,7 +94,7 @@ const ItemInfo = (props) => {
 			</div>
 			<div className='item_iphone_screen-wrp'>
 				<div className='item_iphone_screen-img'>
-					<ReactImageZoom {...imgZoomProps} />
+					{/* <ReactImageZoom {...imgZoomProps} /> */}
 				</div>
 				<div className='screen_info'>
 					<h3 className='screen_info-name'>{title}</h3>

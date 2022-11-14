@@ -3,8 +3,8 @@ import './itemImgGrid.scss';
 import { useEffect, useState } from 'react';
 import { useUnsplash } from '../../hooks/useUnsplash';
 
-const ItemImgGrid = ({ iphone }) => {
-	const [gridType, setGridType] = useState(null);
+const ItemImgGrid = ({ iphone }: { iphone: string }) => {
+	const [gridType, setGridType] = useState<number>(0);
 	const [imgArray, setImgArray] = useState([]);
 	const { request, process } = useUnsplash();
 
@@ -31,7 +31,13 @@ const ItemImgGrid = ({ iphone }) => {
 	);
 };
 
-const GridTypeOne = ({ arrayImg, gridType }) => {
+const GridTypeOne = ({
+	arrayImg,
+	gridType
+}: {
+	arrayImg: any[];
+	gridType: number;
+}) => {
 	const grid = arrayImg.map(({ urls, id }, index) => {
 		return (
 			<img

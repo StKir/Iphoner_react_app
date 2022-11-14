@@ -61,7 +61,7 @@ const MainAbout = () => {
 	);
 };
 
-const AdvItem = (props) => {
+const AdvItem = (props: any) => {
 	const { img, txt } = props;
 	return (
 		<div className='advantages_blocks_item'>

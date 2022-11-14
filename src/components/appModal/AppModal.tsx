@@ -1,18 +1,24 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { propsAppModal } from '../../types/reduxTypes';
 import './appModal.scss';
 
-const AppModal = ({ active, setActive }) => {
+const AppModal: React.FC<propsAppModal> = ({ active, setActive }) => {
 	const [phone, setPhone] = useState('');
 	const [err, setErr] = useState(false);
 	const [type, setType] = useState('default');
+	type eventForm =
+		| React.FormEvent<HTMLFormElement>
+		| React.MouseEvent<HTMLDivElement, MouseEvent>;
 
-	const closeOverlay = (e) => {
-		if (e.target.className === 'modal-overlay') {
+	const closeOverlay = (
+		e: React.MouseEvent<HTMLDivElement, MouseEvent>
+	): void => {
+		if (e.currentTarget.className === 'modal-overlay') {
 			setActive(false);
 		}
 	};
 
-	const onGetOrder = (e) => {
+	const onGetOrder = (e: eventForm) => {
 		e.preventDefault();
 		if (phone.length === 11) {
 			setType('ordered');
@@ -23,7 +29,7 @@ const AppModal = ({ active, setActive }) => {
 		}
 	};
 
-	const renderText = (type) => {
+	const renderText = (type: string) => {
 		if (type === 'ordered') {
 			return (
 				<>
@@ -48,7 +54,7 @@ const AppModal = ({ active, setActive }) => {
 							min={11}
 							value={phone}
 							onChange={(e) => setPhone(e.target.value)}
-							style={!err ? null : { border: '1px solid red' }}
+							style={!err ? undefined : { border: '1px solid red' }}
 						/>
 						<div className='overlay_btns'>
 							<button className='submit-order' type='submit'>

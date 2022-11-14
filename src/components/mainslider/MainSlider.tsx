@@ -9,13 +9,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { TIphone } from '../../types/reduxTypes';
 
 const MainSlider = () => {
-	const sliderRef = useRef('');
+	const sliderRef = useRef<HTMLDivElement>(null);
 	const [display, SetDisplay] = useState('slider');
-	const [data, SetData] = useState(null);
+	const [data, SetData] = useState<TIphone[]>();
 
-	const onChangeDisplay = (type) => {
+	const onChangeDisplay = (type: string) => {
 		SetDisplay(type);
 	};
 
@@ -34,14 +35,14 @@ const MainSlider = () => {
 					<h2>Айфоны</h2>
 					<div className='slider_btns'>
 						<div
-							className={display === 'plit' ? 'active_slider_btn' : null}
+							className={display === 'plit' ? 'active_slider_btn' : undefined}
 							onClick={(e) => onChangeDisplay('plit')}
 						>
 							<img src={plitIcon} alt='Плитками' />
 							<span>Плитками</span>
 						</div>
 						<div
-							className={display === 'slider' ? 'active_slider_btn' : null}
+							className={display === 'slider' ? 'active_slider_btn' : undefined}
 							onClick={(e) => onChangeDisplay('slider')}
 						>
 							<img src={sliderIcon} alt='Слайдером' />
@@ -59,12 +60,12 @@ const MainSlider = () => {
 	);
 };
 
-const Slider = (props) => {
+const Slider = (props: any) => {
 	const [width, setWidth] = useState(428);
 	useEffect(() => {
 		setWidth(window.screen.width <= 1170 ? 278 : 428);
 	}, []);
-	const renderItemsSlider = (arr) => {
+	const renderItemsSlider = (arr: TIphone[]) => {
 		if (arr) {
 			return arr.map(({ name, id, thumbnail }) => {
 				const routerName = name.replace(/ /g, '_');
@@ -109,8 +110,8 @@ const Slider = (props) => {
 	);
 };
 
-const Plite = (props) => {
-	const renderPlit = (arr) => {
+const Plite = (props: any) => {
+	const renderPlit = (arr: TIphone[]) => {
 		if (arr) {
 			return arr.map(({ name, id, thumbnail }) => {
 				const routerName = name.replace(/ /g, '_');
@@ -119,9 +120,7 @@ const Plite = (props) => {
 						<img src={thumbnail} alt={name} />
 						<div className='plite_info'>
 							<h5>{name}</h5>
-							<Link to={`/${routerName}`} href='#'>
-								Смотреть товары
-							</Link>
+							<Link to={`/${routerName}`}>Смотреть товары</Link>
 						</div>
 					</div>
 				);

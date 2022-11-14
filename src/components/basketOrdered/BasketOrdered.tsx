@@ -1,11 +1,11 @@
 import './basketOrdered.scss';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hooks/tsHooks';
 import { basketReset } from '../../store/basketSlice';
 import { Link } from 'react-router-dom';
 
 const BasketOrdered = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		dispatch(basketReset());

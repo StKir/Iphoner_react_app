@@ -4,10 +4,9 @@ import BasketItem from '../../basketItem/BasketItem';
 import BasketForm from '../../basketForm/BasketForm';
 import BasketOrdered from '../../basketOrdered/BasketOrdered';
 
-import store from '../../../store/store';
 import { selectAll } from '../../../store/basketSlice';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useAppSelector, useAppDispatch } from '../../../hooks/tsHooks';
+import React, { useEffect, useState } from 'react';
 
 import {
 	basketRemoveItem,
@@ -15,13 +14,14 @@ import {
 	basketSetTotal
 } from '../../../store/basketSlice';
 import { calcAmount } from '../../../store/basketSlice';
-import { useDispatch } from 'react-redux';
+import { Iphone } from '../../../types/reduxTypes';
+import store from '../../../store/store';
 
-const BasketPage = () => {
-	const [itemsArray, setItemsArray] = useState(null);
-	const [status, SetStatus] = useState(false);
-	const amount = useSelector(calcAmount); //Кастомный селектор возвращает общую сумму корзины
-	const dispatch = useDispatch();
+const BasketPage: React.FC = () => {
+	const [itemsArray, setItemsArray] = useState<Iphone[]>();
+	const [status, SetStatus] = useState<boolean>(false);
+	const amount = useAppSelector(calcAmount); //Кастомный селектор возвращает общую сумму корзины
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		setItemsArray(selectAll(store.getState()));
@@ -29,17 +29,19 @@ const BasketPage = () => {
 		// eslint-disable-next-line
 	}, [amount]);
 
-	const onDelete = (obj) => {
+	const onDelete = (obj: { id: number | string }) => {
 		dispatch(basketRemoveItem(obj));
 		// eslint-disable-next-line
 	};
 
-	const onChangeCountInc = ({ counter, id, stock }) => {
+	type changer = Pick<Iphone, 'counter' | 'id' | 'stock'>;
+
+	const onChangeCountInc = ({ counter, id, stock }: changer) => {
 		if (stock > counter) {
 			dispatch(basketUpdateItem({ id: id, changes: { counter: counter + 1 } }));
 		}
 	};
-	const onChangeCountDec = (el) => {
+	const onChangeCountDec = (el: Iphone) => {
 		const { counter, id } = el;
 		if (counter > 1) {
 			dispatch(basketUpdateItem({ id: id, changes: { counter: counter - 1 } }));
@@ -48,15 +50,13 @@ const BasketPage = () => {
 		}
 	};
 
-	const renderItems = (arr) => {
+	const renderItems = (arr: Iphone[]) => {
 		if (arr && arr.length) {
 			return arr.map((el) => {
 				return (
 					<BasketItem
 						key={el.id}
-						onDelete={() =>
-							onDelete({ id: el.id, price: el.price, counter: el.counter })
-						}
+						onDelete={() => onDelete({ id: el.id })}
 						{...el}
 						onChangeCountInc={() => onChangeCountInc(el)}
 						onChangeCountDec={() => onChangeCountDec(el)}
@@ -68,7 +68,7 @@ const BasketPage = () => {
 		}
 	};
 
-	const items = renderItems(itemsArray);
+	const items = itemsArray ? renderItems(itemsArray) : [];
 
 	return (
 		<section className='basket-section'>
@@ -77,11 +77,7 @@ const BasketPage = () => {
 				{status ? <BasketOrdered /> : null}
 				<h2 className='basket_title'>Корзина</h2>
 				<div className='basket_items-wrp'>
-					{items.length ? (
-						items
-					) : (
-						<h1 className='basket-empty'>Корзина пуста</h1>
-					)}
+					{items ? items : <h1 className='basket-empty'>Корзина пуста</h1>}
 				</div>
 				<div
 					className='basket_amount'

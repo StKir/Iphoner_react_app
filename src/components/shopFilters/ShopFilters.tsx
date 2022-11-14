@@ -1,7 +1,7 @@
 import './shopFilters.scss';
 
 import AppBack from '../appBack/AppBack';
-import { useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import {
@@ -11,14 +11,17 @@ import {
 	filterChangeColor,
 	filterReset
 } from '../../store/filtersSlice';
-import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
+import { TIphone } from '../../types/reduxTypes';
 
-const ShopFilters = ({ iphon }) => {
-	const [model, setModel] = useState(null);
-	const [filterMemory, setFilterMemory] = useState(null);
-	const [filterColor, setFilterColor] = useState(null);
-	const { filterDisplay } = useSelector((state) => state.filters);
-	const dispathc = useDispatch();
+const ShopFilters = ({ iphon }: { iphon: string }) => {
+	const [model, setModel] = useState<TIphone>();
+	const [filterMemory, setFilterMemory] = useState<string>();
+	const [filterColor, setFilterColor] = useState<string>();
+	const [PriceOt, setPriceOt] = useState<number>(NaN);
+	const [PriceDo, setPriceDo] = useState<number>(NaN);
+	const { filterDisplay } = useAppSelector((state) => state.filters);
+	const dispathc = useAppDispatch();
 
 	useEffect(() => {
 		dispathc(filterReset());
@@ -27,8 +30,10 @@ const ShopFilters = ({ iphon }) => {
 
 	const resetFiltersMenu = () => {
 		dispathc(filterReset());
-		setFilterColor(null);
-		setFilterMemory(null);
+		setFilterColor('');
+		setFilterMemory('');
+		setPriceOt(NaN);
+		setPriceDo(NaN);
 	};
 
 	useEffect(() => {
@@ -36,8 +41,8 @@ const ShopFilters = ({ iphon }) => {
 			.get('https://d5d2701mecin7jur8alg.apigw.yandexcloud.net/iphons')
 			.then((data) =>
 				setModel(
-					data.data.filter(({ name }) => {
-						return name === iphon;
+					data.data.filter((el: TIphone) => {
+						return el.name === iphon;
 					})[0]
 				)
 			)
@@ -45,34 +50,44 @@ const ShopFilters = ({ iphon }) => {
 		// eslint-disable-next-line
 	}, []);
 
-	const onChangeMemory = (e) => {
-		setFilterMemory(e.target.textContent);
-		dispathc(filterChangeMemory(e.target.textContent));
+	const onChangeMemory = (
+		e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>
+	) => {
+		setFilterMemory(
+			e.currentTarget.textContent ? e.currentTarget.textContent : ''
+		);
+		dispathc(filterChangeMemory(e.currentTarget.textContent));
 	};
 
-	const onChangeColor = (el) => {
+	const onChangeColor = (el: string) => {
 		setFilterColor(el);
 		dispathc(filterChangeColor(el));
 	};
 
-	const onChangeCoast = (e) => {
+	const onChangeCoast = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		dispathc(
-			filterChangeCoast({
-				ot: Number(e.target[0].value),
-				do: Number(e.target[1].value > 5 ? e.target[1].value : 999999)
-			})
-		);
+		console.log(PriceOt);
+
+		if (typeof PriceOt == 'number' && typeof PriceDo == 'number') {
+			dispathc(
+				filterChangeCoast({
+					ot: PriceOt >= 0 ? PriceOt : 0,
+					do: PriceDo > 5 ? PriceDo : 999999
+				})
+			);
+		}
 	};
 
-	const renderMemory = (obj) => {
+	const renderMemory = (obj: TIphone) => {
 		// Обернуть в usecallback
 		if (obj) {
 			return obj.memory.map((el, id) => {
 				return (
 					<div
 						className='filter_memory_item'
-						style={filterMemory === el ? { border: '1px solid #3522B0' } : null}
+						style={
+							filterMemory === el ? { border: '1px solid #3522B0' } : undefined
+						}
 						key={id}
 						onClick={(e) => onChangeMemory(e)}
 					>
@@ -85,19 +100,18 @@ const ShopFilters = ({ iphon }) => {
 		}
 	};
 
-	const renderColor = (obj) => {
+	const renderColor = (obj: TIphone) => {
 		// Обернуть в usecallback
 		if (obj) {
 			return obj.color.map((el, id) => {
 				const style = {
 					backgroundColor: el.color,
-					border: filterColor === el.name ? '1px solid #3522B0' : null
+					border: filterColor === el.name ? '1px solid #3522B0' : undefined
 				};
 				return (
 					<div
 						key={id}
 						className='filter_color_item'
-						alt={el.name}
 						style={style}
 						onClick={() => onChangeColor(el.name)}
 					></div>
@@ -108,8 +122,8 @@ const ShopFilters = ({ iphon }) => {
 		}
 	};
 
-	const memoryItem = renderMemory(model);
-	const colorsItem = renderColor(model);
+	const memoryItem = model ? renderMemory(model) : [];
+	const colorsItem = model ? renderColor(model) : [];
 	return (
 		<div className='aside'>
 			<AppBack />
@@ -138,10 +152,26 @@ const ShopFilters = ({ iphon }) => {
 							Стоимость
 						</label>
 						<div className='filters_price_form-inputs'>
-							<input type='number' name='ot' placeholder='От' />
-							<input type='number' name='do' placeholder='До' />
+							<input
+								onChange={(e) =>
+									setPriceOt(e.target.value ? +e.target.value : NaN)
+								}
+								type='number'
+								name='ot'
+								placeholder='От'
+								value={PriceOt}
+							/>
+							<input
+								onChange={(e) =>
+									setPriceDo(e.target.value ? +e.target.value : 9999999)
+								}
+								type='number'
+								name='do'
+								placeholder='До'
+								value={PriceDo}
+							/>
 						</div>
-						<button type='sumbit' className='filters_price_form-btn'>
+						<button type='submit' className='filters_price_form-btn'>
 							Показать
 						</button>
 					</form>

@@ -6,7 +6,13 @@ export const useUnsplash = () => {
 	const [process, setProcess] = useState('waiting');
 	const __apiKey = 'ryhIYmsQ0dsktKFIWY4eRJAi5bgHfngUi_pq2viDlxI';
 
-	const request = useCallback(async (searchTitle, num = 8) => {
+
+	interface result {
+		urls: string,
+		id: number | string
+	}
+
+	const request = useCallback(async (searchTitle:string, num = 8) => {
 		setLoading(true);
 		setProcess('loading');
 		const pageNumber = Math.floor(Math.random() * (5 - 1) + 1);
@@ -17,7 +23,7 @@ export const useUnsplash = () => {
 			if (res.status === 200) {
 				setLoading(false);
 				setProcess('success');
-				return res.data.results.map(({ urls, id }) => ({ id, urls }));
+				return res.data.results.map(({ urls, id }:result) => ({ id, urls }));
 			}
 		} catch (e) {
 			console.log(e);
