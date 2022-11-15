@@ -13,7 +13,7 @@ import AppModal from '../appModal/AppModal';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Iphone } from '../../types/reduxTypes';
+import { Iphone } from '../../types/Types';
 
 const ItemInfo = (props: Iphone) => {
 	const dispatch = useAppDispatch();

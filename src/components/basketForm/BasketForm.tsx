@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Helmet } from 'react-helmet';
-import { propsBasketForm } from '../../types/reduxTypes';
+import { propsBasketForm } from '../../types/Types';
 
 const BasketForm: React.FC<propsBasketForm> = ({ items, SetStatus }) => {
 	const [formType, SetFormType] = useState<string>('');

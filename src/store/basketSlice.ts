@@ -4,7 +4,7 @@ import {
 	createSelector,
 	PayloadAction
 } from '@reduxjs/toolkit';
-import { Iphone } from '../types/reduxTypes';
+import { Iphone } from '../types/Types';
 import { RootState } from './store';
 
 type basketType = {

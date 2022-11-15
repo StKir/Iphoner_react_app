@@ -14,7 +14,7 @@ import {
 	basketSetTotal
 } from '../../../store/basketSlice';
 import { calcAmount } from '../../../store/basketSlice';
-import { Iphone } from '../../../types/reduxTypes';
+import { Iphone } from '../../../types/Types';
 import store from '../../../store/store';
 
 const BasketPage: React.FC = () => {

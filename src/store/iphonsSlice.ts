@@ -5,7 +5,7 @@ import {
 	createSelector,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { filters, Iphone } from '../types/reduxTypes';
+import { filters, Iphone } from '../types/Types';
 import { RootState } from './store';
 
 const iphonsAdater = createEntityAdapter<Iphone>();

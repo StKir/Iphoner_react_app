@@ -6,16 +6,21 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useMemo } from 'react';
+import {
+	TTradeInItem,
+	TTradeInItemKit,
+	TTradeInMain
+} from '../../../types/Types';
 
 const TradeIn = () => {
-	const [models, setModels] = useState([]);
-	const [kitInfo, setkitInfo] = useState([]);
-	const [modelPrice, setModelPrice] = useState(null);
-	const [kit, setKit] = useState(null);
-	const [damage, setDamage] = useState(1);
-	const [total, setTotal] = useState(null);
+	const [models, setModels] = useState<TTradeInItem[]>([]);
+	const [kitInfo, setkitInfo] = useState<TTradeInItemKit[]>([]);
+	const [modelPrice, setModelPrice] = useState<TTradeInItem>();
+	const [kit, setKit] = useState<TTradeInItemKit>();
+	const [damage, setDamage] = useState<number>(1);
+	const [total, setTotal] = useState<TTradeInMain>();
 
-	const setModel = (value) => {
+	const setModel = (value: TTradeInItem) => {
 		setModelPrice(value);
 	};
 
@@ -31,7 +36,7 @@ const TradeIn = () => {
 			.catch((err) => console.log(err));
 	}, []);
 
-	const renderModels = (arr) => {
+	const renderModels = (arr: TTradeInItem[]) => {
 		return arr.map((props) => {
 			return (
 				<PhoneItem
@@ -44,7 +49,7 @@ const TradeIn = () => {
 		});
 	};
 
-	const renderKit = (arr) => {
+	const renderKit = (arr: TTradeInItemKit[]): JSX.Element[] => {
 		return arr.map((props) => {
 			return (
 				<ItemKit
@@ -56,7 +61,7 @@ const TradeIn = () => {
 			);
 		});
 	};
-	const checkForm = (e) => {
+	const checkForm = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault();
 		setTotal({
 			model: modelPrice ? modelPrice : 'error',
@@ -65,7 +70,7 @@ const TradeIn = () => {
 		});
 	};
 
-	const calcFullPrice = (total) => {
+	const calcFullPrice = (total: TTradeInMain) => {
 		if (total && total.model !== 'error' && total.kit !== 'error') {
 			return Math.floor(
 				total.model.price * total.kit.value * (total.damage / 10)
@@ -76,9 +81,11 @@ const TradeIn = () => {
 	};
 
 	const renderFullPrice = useMemo(() => {
-		return calcFullPrice(total);
+		if (!(typeof total == 'undefined')) {
+			return calcFullPrice(total);
+		}
 		// eslint-disable-next-line
-	}, [total?.model.price, total?.kit.value, total?.damage]);
+	}, [total?.model, total?.kit, total?.damage]);
 	const modelsArr = renderModels(models);
 	const kitArr = renderKit(kitInfo);
 	return (
@@ -137,7 +144,9 @@ const TradeIn = () => {
 							marks
 							min={1}
 							max={10}
-							onChange={(e) => setDamage(e.target.value)}
+							onChange={(e: Event, value: number | number[]) =>
+								setDamage(+value)
+							}
 						/>
 					</div>
 				</div>
@@ -150,7 +159,15 @@ const TradeIn = () => {
 	);
 };
 
-const PhoneItem = (props) => {
+interface TItemPropsPhoneItem extends TTradeInItem {
+	setModel: () => void;
+	checked: boolean;
+}
+interface TItemPropsItemKit extends TTradeInItemKit {
+	setKit: () => void;
+	checked: boolean;
+}
+const PhoneItem = (props: TItemPropsPhoneItem) => {
 	return (
 		<div
 			className={
@@ -162,8 +179,7 @@ const PhoneItem = (props) => {
 		</div>
 	);
 };
-
-const ItemKit = (props) => {
+const ItemKit = (props: TItemPropsItemKit) => {
 	return (
 		<div
 			className={
@@ -176,7 +192,7 @@ const ItemKit = (props) => {
 	);
 };
 
-const ViewPrice = ({ price }) => {
+const ViewPrice = ({ price }: { price: number }) => {
 	return (
 		<div className='trade-in_price'>
 			<h2>Стоимость устройства</h2>

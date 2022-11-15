@@ -3,7 +3,7 @@ import './itemIphone.scss';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
 import { basketAddItem, getAllItemsId } from '../../store/basketSlice';
-import { TonAddItem } from '../../types/reduxTypes';
+import { TonAddItem } from '../../types/Types';
 
 const ItemIphone = (props: any) => {
 	const { title, memory, color, thumbnail, stock, model, price, id } = props;

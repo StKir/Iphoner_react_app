@@ -11,7 +11,7 @@ import ItemInfo from '../../itemInfo/ItemInfo';
 import ItemImgGrid from '../../itemImgGrid/ItemImgGrid';
 
 import { useEffect, useState } from 'react';
-import { Iphone } from '../../../types/reduxTypes';
+import { Iphone } from '../../../types/Types';
 
 const ItemPage = () => {
 	const { title } = useParams();

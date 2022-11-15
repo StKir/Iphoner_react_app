@@ -1,7 +1,7 @@
 import './basketItem.scss';
 import minus from '../../assets/icons/minus.svg';
 import plus from '../../assets/icons/plus.svg';
-import { TBasketItem } from '../../types/reduxTypes';
+import { TBasketItem } from '../../types/Types';
 
 const BasketItem = ({
 	title,

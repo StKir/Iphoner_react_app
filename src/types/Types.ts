@@ -16,7 +16,6 @@ type Tcolor = {
 }
 
 export interface filters {
-	filters: any
     filterDisplay: string,
 	filterCoast: filterCoast,
 	filterMemory: string,
@@ -37,8 +36,8 @@ export type propsBasketForm = {
 };
 
 export interface TBasketItem extends Iphone{
-	onChangeCountInc : () => any
-	onChangeCountDec: () => any
+	onChangeCountInc : () => void
+	onChangeCountDec: () => void
 	onDelete: () => void
 }
 
@@ -56,4 +55,23 @@ export interface TTrandeItem {
     id: number | string,
     model: string,
     price: number
+}
+
+
+export interface TTradeInItem {
+    id: string | number
+    model: string
+    price: number
+}
+
+export interface TTradeInItemKit {
+    id: string | number
+    title: string
+    value: number
+}
+
+export interface TTradeInMain {
+    damage: number
+    kit: TTradeInItemKit | 'error'
+    model: TTradeInItem | 'error'
 }

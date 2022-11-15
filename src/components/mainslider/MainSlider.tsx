@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { TIphone } from '../../types/reduxTypes';
+import { TIphone } from '../../types/Types';
 
 const MainSlider = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);

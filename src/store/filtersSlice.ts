@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { filters, filterCoast } from '../types/reduxTypes';
+import { filters, filterCoast } from '../types/Types';
 
 const initialState = {
 	filterDisplay: 'По умолчанию',

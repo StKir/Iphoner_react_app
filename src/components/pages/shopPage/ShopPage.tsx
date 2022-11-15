@@ -10,7 +10,7 @@ import {
 	filteredIphoneSelector
 } from '../../../store/iphonsSlice';
 import React from 'react';
-import { Iphone } from '../../../types/reduxTypes';
+import { Iphone } from '../../../types/Types';
 
 const ShopPage: React.FC = () => {
 	const { model } = useParams();

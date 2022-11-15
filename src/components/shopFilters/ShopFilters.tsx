@@ -12,7 +12,7 @@ import {
 	filterReset
 } from '../../store/filtersSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
-import { TIphone } from '../../types/reduxTypes';
+import { TIphone } from '../../types/Types';
 
 const ShopFilters = ({ iphon }: { iphon: string }) => {
 	const [model, setModel] = useState<TIphone>();
@@ -163,7 +163,7 @@ const ShopFilters = ({ iphon }: { iphon: string }) => {
 							/>
 							<input
 								onChange={(e) =>
-									setPriceDo(e.target.value ? +e.target.value : 9999999)
+									setPriceDo(e.target.value ? +e.target.value : NaN)
 								}
 								type='number'
 								name='do'

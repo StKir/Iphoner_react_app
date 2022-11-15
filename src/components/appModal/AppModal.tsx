@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { propsAppModal } from '../../types/reduxTypes';
+import { propsAppModal } from '../../types/Types';
 import './appModal.scss';
 
 const AppModal: React.FC<propsAppModal> = ({ active, setActive }) => {
