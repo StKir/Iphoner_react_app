@@ -21,9 +21,13 @@ const BasketForm: React.FC<propsBasketForm> = ({ items, SetStatus }) => {
 	const renderForm = (type: string) => {
 		switch (type) {
 			case 'delivery':
-				return <BasketFormDelivery items={order} SetStatus={() => SetStatus} />;
+				return (
+					<BasketFormDelivery items={order} SetStatus={() => SetStatus(true)} />
+				);
 			case 'pickup':
-				return <BasketFormPickUp items={order} SetStatus={() => SetStatus} />;
+				return (
+					<BasketFormPickUp items={order} SetStatus={() => SetStatus(true)} />
+				);
 			default:
 				return null;
 		}
@@ -108,9 +112,9 @@ const BasketForm: React.FC<propsBasketForm> = ({ items, SetStatus }) => {
 
 type formOrder = {
 	items: {
-		title: any;
-		counter: any;
-		price: any;
+		title: string;
+		counter: number;
+		price: number;
 		total: number;
 	}[];
 	SetStatus: React.Dispatch<React.SetStateAction<boolean>>;
@@ -126,7 +130,7 @@ const BasketFormDelivery = ({ items, SetStatus }: formOrder) => {
 			house: '',
 			section: '',
 			apart: '',
-			type: ''
+			type: 'Выбрать'
 		},
 		validationSchema: Yup.object({
 			name: Yup.string().required('Обязательное поле'),
@@ -235,7 +239,7 @@ const BasketFormDelivery = ({ items, SetStatus }: formOrder) => {
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
 					>
-						<option value='' disabled selected key='0'>
+						<option value='Выбрать' disabled key='0'>
 							Выбрать
 						</option>
 						<option value='Нал' key='1'>
