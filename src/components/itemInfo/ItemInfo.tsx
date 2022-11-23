@@ -7,8 +7,7 @@ import plus from '../../assets/icons/plus.svg';
 import { basketAddItem } from '../../store/basketSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
 
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 
 import { getAllItemsId } from '../../store/basketSlice';
 import AppModal from '../appModal/AppModal';
@@ -16,6 +15,8 @@ import AppModal from '../appModal/AppModal';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Iphone } from '../../types/Types';
+
+import InnerImageZoom from 'react-inner-image-zoom';
 
 const ItemInfo = (props: Iphone) => {
 	const dispatch = useAppDispatch();
@@ -25,9 +26,9 @@ const ItemInfo = (props: Iphone) => {
 	const [overlay, setOverlay] = useState(false);
 	const basketInfo = useAppSelector(getAllItemsId);
 	const [screenImgSize, setScreenImgSize] = useState({
-		width: 555,
+		width: 485,
 		height: 535,
-		zoomWidth: 500
+		zoomWidth: 0.9
 	});
 
 	const changeImgSize = () => {
@@ -41,7 +42,7 @@ const ItemInfo = (props: Iphone) => {
 			setScreenImgSize({
 				width: 555,
 				height: 535,
-				zoomWidth: 500
+				zoomWidth: 0.9
 			});
 		}
 	};
@@ -96,16 +97,13 @@ const ItemInfo = (props: Iphone) => {
 			</div>
 			<div className='item_iphone_screen-wrp'>
 				<div className='item_iphone_screen-img'>
-					<Zoom>
-						<img
-							src={imgZoomProps.img}
-							alt={title}
-							style={{
-								width: imgZoomProps.width,
-								height: imgZoomProps.height
-							}}
-						/>
-					</Zoom>
+					<InnerImageZoom
+						src={imgZoomProps.img}
+						width={imgZoomProps.width}
+						height={imgZoomProps.height}
+						zoomType='hover'
+						zoomScale={imgZoomProps.zoomWidth}
+					/>
 				</div>
 				<div className='screen_info'>
 					<h3 className='screen_info-name'>{title}</h3>
