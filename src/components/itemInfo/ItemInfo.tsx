@@ -7,7 +7,9 @@ import plus from '../../assets/icons/plus.svg';
 import { basketAddItem } from '../../store/basketSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
 
-// import ReactImageZoom from 'react-image-zoom'; // выйдает ошибку в консоли Warning: Using...
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
+
 import { getAllItemsId } from '../../store/basketSlice';
 import AppModal from '../appModal/AppModal';
 
@@ -94,7 +96,16 @@ const ItemInfo = (props: Iphone) => {
 			</div>
 			<div className='item_iphone_screen-wrp'>
 				<div className='item_iphone_screen-img'>
-					{/* <ReactImageZoom {...imgZoomProps} /> */}
+					<Zoom>
+						<img
+							src={imgZoomProps.img}
+							alt={title}
+							style={{
+								width: imgZoomProps.width,
+								height: imgZoomProps.height
+							}}
+						/>
+					</Zoom>
 				</div>
 				<div className='screen_info'>
 					<h3 className='screen_info-name'>{title}</h3>
