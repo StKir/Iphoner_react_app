@@ -75,3 +75,5 @@ export interface TTradeInMain {
     kit: TTradeInItemKit | 'error'
     model: TTradeInItem | 'error'
 }
+
+export type displayType = 'slider' | 'plit'

@@ -21,16 +21,16 @@ const AppFooter: React.FC = () => {
 				<div className='footer_contacts'>
 					<div className='footer-item'>
 						<img src={map} alt='map' />
-						<span className='head_info info'>
+						<span className='head_info info-footer'>
 							г.Нижний Новгород ул. Заярская 99
 						</span>
 					</div>
 					<div className='footer-item'>
 						<img src={phone} alt='phone' />
-						<div className='phone_info info'>
+						<div className='phone_info info-footer'>
 							<span className='phone_number'>+7(950)-603-XX-XX</span>
 							<span
-								className='phone_call'
+								className='phone_call-footer'
 								onClick={() => {
 									setActive(true);
 								}}
@@ -41,7 +41,7 @@ const AppFooter: React.FC = () => {
 					</div>
 					<div className='footer-item'>
 						<img src={time} alt='time' />
-						<span className='time_info info'>
+						<span className='time_info info-footer'>
 							Пн-Пт 10:00 - 20:00 Сб-Вс 10:00 - 18:00
 						</span>
 					</div>

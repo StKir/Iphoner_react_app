@@ -137,7 +137,8 @@ const BasketFormDelivery = ({ items, SetStatus }: formOrder) => {
 			email: Yup.string()
 				.email('Некорректный почтовый адрес')
 				.required('Обязательное поле'),
-			phone: Yup.number()
+			phone: Yup.string()
+				.matches(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)
 				.min(11, 'Неправильный номер')
 				// .max(12, 'Неправильный номер')
 				.required('Обязательное поле'),
@@ -180,7 +181,7 @@ const BasketFormDelivery = ({ items, SetStatus }: formOrder) => {
 					<div className='form-error'>{formik.errors.email}</div>
 				) : null}
 				<input
-					type='number'
+					type='text'
 					placeholder='Номер телефона'
 					name='phone'
 					onChange={formik.handleChange}
@@ -273,7 +274,8 @@ const BasketFormPickUp = ({ items, SetStatus }: formOrder) => {
 			email: Yup.string()
 				.email('Некорректный почтовый адрес')
 				.required('Обязательное поле'),
-			phone: Yup.number()
+			phone: Yup.string()
+				.matches(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)
 				.min(11, 'Неправильный номер')
 				// .max(12, 'Неправильный номер')
 				.required('Обязательное поле'),
@@ -312,7 +314,7 @@ const BasketFormPickUp = ({ items, SetStatus }: formOrder) => {
 					<div className='form-error'>{formik.errors.email}</div>
 				) : null}
 				<input
-					type='number'
+					type='text'
 					placeholder='Номер телефона'
 					name='phone'
 					onChange={formik.handleChange}

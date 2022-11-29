@@ -16,7 +16,7 @@ import React from 'react';
 
 const AppHeader: React.FC = () => {
 	const [active, setActive] = useState(false);
-	const [infoType, setinfoType] = useState('null');
+	const [infoType, setinfoType] = useState<string | null>(null);
 	const items = useAppSelector(selectAll);
 
 	const infoState = {
@@ -51,9 +51,14 @@ const AppHeader: React.FC = () => {
 			}
 		};
 		if (window.screen.width < 720 && infoType) {
+			const blockInfo = data();
 			return (
-				<div className='info_for_phone' onClick={() => setinfoType('null')}>
-					{data()}
+				<div
+					className='info_for_phone'
+					style={infoType === null ? { display: 'none' } : { display: 'flex' }}
+					onClick={() => setinfoType(null)}
+				>
+					{blockInfo}
 				</div>
 			);
 		} else {

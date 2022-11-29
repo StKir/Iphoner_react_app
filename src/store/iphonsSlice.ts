@@ -3,16 +3,17 @@ import {
 	createAsyncThunk,
 	createEntityAdapter,
 	createSelector,
+	PayloadAction,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { filters, Iphone } from '../types/Types';
+import { filters, Iphone, displayType } from '../types/Types';
 import { RootState } from './store';
 
 const iphonsAdater = createEntityAdapter<Iphone>();
 
 type iphoneAdaterType = {
 	iphonsLoadingStatus: 'idle' | 'loading' | 'error',
-	selectedIphon: Iphone | null,
+	menuType: displayType
 	entities: {}
 	ids: []
 }
@@ -21,7 +22,7 @@ const initialState = {
 	entities: {},
     ids: [],
 	iphonsLoadingStatus: 'idle',
-	selectedIphon: null
+	menuType: 'slider'
 } as iphoneAdaterType
 
 export const fetchIphons = createAsyncThunk<Iphone[], string>(
@@ -36,7 +37,11 @@ export const fetchIphons = createAsyncThunk<Iphone[], string>(
 const iphonsSlice = createSlice({
 	name: 'iphons',
 	initialState,
-	reducers: {},
+	reducers: {
+		changeDisplay: (state, {payload}: PayloadAction<displayType>) => {
+			state.menuType = payload;
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchIphons.pending, (state) => {
@@ -52,7 +57,7 @@ const iphonsSlice = createSlice({
 	}
 });
 
-const { reducer } = iphonsSlice;
+const { reducer, actions } = iphonsSlice;
 
 export const { selectAll } = iphonsAdater.getSelectors<RootState>((state) => state.iphons);
 
@@ -72,6 +77,6 @@ export const filteredIphoneSelector= createSelector(
 	}
 );
 
-// export const {
-//
-// } = actions;
+export const {
+	changeDisplay
+} = actions;

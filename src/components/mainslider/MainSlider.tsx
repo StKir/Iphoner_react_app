@@ -2,6 +2,8 @@ import sliderIcon from '../../assets/icons/layout-plit.svg';
 import plitIcon from '../../assets/icons/layout-grid.svg';
 import tradeIn from '../../assets/img/trade-in-img.png';
 import './mainSlider.scss';
+import { useAppDispatch, useAppSelector } from '../../hooks/tsHooks';
+import { changeDisplay } from '../../store/iphonsSlice';
 
 import { useEffect, useRef, useState } from 'react';
 
@@ -9,15 +11,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { TIphone } from '../../types/Types';
+import { displayType, TIphone } from '../../types/Types';
 
 const MainSlider = () => {
 	const sliderRef = useRef<HTMLDivElement>(null);
-	const [display, SetDisplay] = useState('slider');
 	const [data, SetData] = useState<TIphone[]>();
-
-	const onChangeDisplay = (type: string) => {
-		SetDisplay(type);
+	const dispatch = useAppDispatch();
+	const display = useAppSelector((store) => store.iphons.menuType);
+	const onChangeDisplay = (type: displayType) => {
+		dispatch(changeDisplay(type));
 	};
 
 	useEffect(() => {

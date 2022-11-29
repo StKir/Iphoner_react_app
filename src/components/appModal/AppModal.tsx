@@ -13,7 +13,7 @@ const AppModal: React.FC<propsAppModal> = ({ active, setActive }) => {
 	const closeOverlay = (
 		e: React.MouseEvent<HTMLDivElement, MouseEvent>
 	): void => {
-		if (e.currentTarget.className === 'modal-overlay') {
+		if ((e.target as HTMLElement).classList[0] === 'modal-overlay') {
 			setActive(false);
 		}
 	};

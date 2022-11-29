@@ -41,20 +41,29 @@ footer {
 	}
 
 	.phone_info {
-		.phone_call {
+		align-items: center;
+		.phone_call-footer {
 			font-size: 16px;
 			line-height: 19px;
 			text-decoration-line: underline;
 			color: #ffffff !important;
+			text-align: center;
+			display: block;
+			width: 170px;
 		}
 	}
 }
+
 @media screen and (max-width: 720px) {
 	.footer_logo {
 		display: flex;
 		justify-content: center;
-		h3 {
-			display: none;
-		}
+		flex-wrap: wrap;
+	}
+	.footer_contacts {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		grid-gap: 25px;
 	}
 }
