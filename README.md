@@ -20,7 +20,7 @@ cсылка на проект [тут](https://iphoner-react-app.vercel.app)
 6. Работа с API с помощью клиента Axios ✅
 7. Прописан простой api на яндекс облаке ✅
 8. Проект переписан на Typescript и по итогу в репозитории 2 ветки 1. JS 2. TS ✅
-9. Добавлен Redux-persist для сохранения корзины в localstorage
+9. Добавлен Redux-persist для сохранения корзины в localstorage ✅
 
 ## Пояснение
 
